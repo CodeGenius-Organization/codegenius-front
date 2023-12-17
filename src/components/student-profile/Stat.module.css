@@ -1,0 +1,41 @@
+.stats_wrapper {
+    display: flex;
+
+    gap: 53px;
+
+    align-items: center;
+
+    width: 100%;
+    
+}
+
+.icon_wrapper {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+}
+
+.stats_info {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.stats_number {
+    font-family: 'Titillium Web';
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.stats_text {
+    font-family: 'Titillium Web';
+    font-size: 24px;
+    font-weight: normal;
+    color: #FFF;
+}
