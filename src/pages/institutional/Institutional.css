@@ -290,10 +290,10 @@ p {
 .footer .logo-mindtech h1 {
   color: #fff;
   font-family: "Oxanium";
-  font-size: 32px;
-  font-style: normal;
+  font-size: 1.7rem;
   font-weight: 400;
   line-height: normal;
+  cursor: pointer;
 }
 
 .footer .menu {
@@ -308,6 +308,7 @@ p {
   align-items: flex-start;
   gap: 100px;
   list-style-type: none;
+  cursor: pointer;
 }
 
 .footer .redes-sociais {
@@ -327,4 +328,9 @@ p {
   align-items: center;
   border-radius: 100px;
   border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.footer li:hover {
+  font-weight: 600;
 }
