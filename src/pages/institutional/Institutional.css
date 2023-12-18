@@ -1,315 +1,330 @@
+.background {
+  position: relative;
+}
+
 .gradient {
-    width: 100%;
-    background-color: #121526;
-    max-width: 1920px;
-    position: absolute;
-    z-index: -1;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    overflow: hidden;
-    height: 3348px;
+  width: 100%;
+  background-color: #121526;
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow: hidden;
+  height: -moz-available;
+  height: -webkit-fill-available;
+  height: fill-available;
 }
 
 .side {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 50rem;
 }
 
 .blur {
-    position: relative;
-    width: 600px;
-    height: 600px;
-    border-radius: 100%;
-    filter: blur(200px);
+  position: relative;
+  width: 600px;
+  height: 600px;
+  border-radius: 100%;
+  filter: blur(200px);
 }
 
 .blur.purple {
-    background: radial-gradient(50% 50% at 50% 50%, #7F56BC 0%, rgba(127, 86, 188, 0.00) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #7f56bc 0%,
+    rgba(127, 86, 188, 0) 100%
+  );
 }
 
 .blur.pink {
-    background: radial-gradient(50% 50% at 50% 50%, #F070FF 0%, rgba(240, 112, 255, 0.00) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #f070ff 0%,
+    rgba(240, 112, 255, 0) 100%
+  );
 }
 
 .side.right {
-    padding-top: 40rem;
+  padding-top: 40rem;
 }
 
 .side.left .blur:nth-child(1),
 .side.left .blur:nth-child(2),
 .side.left .blur:nth-child(3) {
-    right: 10rem;
-    bottom: 10rem;
+  right: 20rem;
+  bottom: 20rem;
 }
 
 .side.right .blur:nth-child(1),
 .side.right .blur:nth-child(2),
 .side.right .blur:nth-child(3) {
-    position: relative;
-    bottom: 10rem;
-    left: 10rem;
+  position: relative;
+  bottom: 20rem;
+  left: 20rem;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .content {
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .home {
-    height: 571px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    /* border: solid 2px fuchsia; */
+  height: 571px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* border: solid 2px fuchsia; */
 }
 
 .home .left-side {
-    /* border: solid 2px firebrick; */
-    display: flex;
-    flex-direction: column;
-    width: 570px;
-    justify-content: center;
-    gap: 32px 30px;
-    flex-wrap: wrap;
+  /* border: solid 2px firebrick; */
+  display: flex;
+  flex-direction: column;
+  width: 570px;
+  justify-content: center;
+  gap: 32px 30px;
+  flex-wrap: wrap;
 }
 
 .home .left-side h1,
 p {
-    color: #fff;
-    font-family: 'Raleway';
+  color: #fff;
+  font-family: "Raleway";
 }
 
 .home .left-side h1 {
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .home .left-side p {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 300;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
 }
 
 .home .left-side .bt-home {
-    display: flex;
-    align-items: flex-end;
-    gap: 30px;
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
 }
 
 .home .left-side .bt-home .cadastre-se {
-    border-radius: 20px;
-    border: 1px solid #F070FF;
-    width: 170px;
-    height: 32px;
-    padding: 0px 40px;
-    font-family: 'Raleway';
-    color: #F070FF;
-    background-color: transparent;
-    cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid #f070ff;
+  width: 170px;
+  height: 32px;
+  padding: 0px 40px;
+  font-family: "Raleway";
+  color: #f070ff;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .home .left-side .bt-home .cadastre-se:hover {
-    background-color: #F070FF;
-    color: #121526;
-    box-shadow: 0px 0px 8px 2px rgba(234, 144, 225, 0.5);
+  background-color: #f070ff;
+  color: #121526;
+  box-shadow: 0px 0px 8px 2px rgba(234, 144, 225, 0.5);
 }
 
 .home .left-side .bt-home .saiba-mais {
-    border-radius: 20px;
-    border: 1px solid #F070FF;
-    width: 170px;
-    height: 32px;
-    padding: 0px 40px;
-    font-family: 'Raleway';
-    color: #121526;
-    background-color: #F070FF;
-    cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid #f070ff;
+  width: 170px;
+  height: 32px;
+  padding: 0px 40px;
+  font-family: "Raleway";
+  color: #121526;
+  background-color: #f070ff;
+  cursor: pointer;
 }
 
 .home .left-side .bt-home .saiba-mais:hover {
-    border: none;
-    box-shadow: 0px 0px 8px 2px rgba(234, 144, 225, 0.5);
+  border: none;
+  box-shadow: 0px 0px 8px 2px rgba(234, 144, 225, 0.5);
 }
 
 .right-side {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: solid 2px hotpink; */
 }
 
 .right-side .home-img {
-    width: 584.65px;
-    position: relative;
-    animation: mymove 3s ease-in infinite;
+  width: 36rem;
+  position: relative;
+  animation: mymove 3s ease-in infinite;
+  /* border: solid 2px gold; */
 }
 
 @keyframes mymove {
-    0% {
-        top: 0px;
-        transform: scaleX(1.0);
-    }
+  0% {
+    top: 0px;
+    transform: scaleX(1);
+  }
 
-    50% {
-        top: 6px;
-        transform: scaleX(1.006);
-    }
+  50% {
+    top: 6px;
+    transform: scaleX(1.006);
+  }
 
-    100% {
-        top: 0px;
-        transform: scaleX(1.0);
-    }
+  100% {
+    top: 0px;
+    transform: scaleX(1);
+  }
 }
 
 /* sobre nós */
 .sobre-nos {
-    /* height: 558px; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  /* height: 558px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .sobre-nos .text {
-    display: flex;
-    flex-direction: column;
-    color: #fff;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
 }
 
 .sobre-nos .text h1 {
-    font-family: 'Raleway';
-    font-size: 40px;
-    font-style: normal;
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 80.009px;
+  font-family: "Raleway";
+  font-size: 40px;
+  font-style: normal;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 80.009px;
 }
 
 .sobre-nos .text p {
-    color: #FFF;
-    text-align: center;
-    font-family: Raleway;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 26px;
+  color: #fff;
+  text-align: center;
+  font-family: Raleway;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26px;
 }
 
 /* codegenius */
 .codegenius {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 96px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 96px;
 }
 
-.codegenius .left-side>img {
-    height: 400px;
+.codegenius .left-side > img {
+  height: 400px;
 }
 
 .codegenius .left-side .codegenius-img {
-    position: relative;
-    animation: mymove 3s ease-in infinite;
+  position: relative;
+  animation: mymove 3s ease-in infinite;
 }
 
 /* Nossa Equipe */
 .equipe {
-    height: 800px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 120px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 120px;
 }
 
 .title-equipe {
-    color: #FFF;
-    text-align: center;
-    font-family: 'Raleway';
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 200.023%;
-    text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  font-family: "Raleway";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 200.023%;
+  text-transform: uppercase;
 }
 
 .cards-equipe {
-    display: flex;
-    gap: 1rem;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  width: 100%;
 }
 
 /* footer */
 .footer {
-    height: 133px;
-    width: 100%;
-    background-color: #100013;
-    display: flex;
-    justify-content: center;
+  height: 133px;
+  width: 100%;
+  background-color: #100013;
+  display: flex;
+  justify-content: center;
 }
 
 .footer .container {
-    width: 65%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    /* border: solid 2px firebrick; */
+  width: 65%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* border: solid 2px firebrick; */
 }
 
 .footer .logo-mindtech h1 {
-    color: #FFF;
-    font-family: 'Oxanium';
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #fff;
+  font-family: "Oxanium";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .footer .menu {
-    color: #FFF;
-    font-family: 'Titillium Web';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    display: flex;
-    display: inline-flex;
-    align-items: flex-start;
-    gap: 100px;
-    list-style-type: none
+  color: #fff;
+  font-family: "Titillium Web";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 100px;
+  list-style-type: none;
 }
 
 .footer .redes-sociais {
-    /* display: flex; */
-    display: inline-flex;
-    align-items: flex-start;
-    gap: 15px;
+  /* display: flex; */
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 15px;
 }
 
 .footer .redes-sociais .facebook,
 .instagram,
 .whatsapp {
-    display: flex;
-    width: 32px;
-    padding: 6px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100px;
-    border: 1px solid #FFF;
+  display: flex;
+  width: 32px;
+  padding: 6px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid #fff;
 }
