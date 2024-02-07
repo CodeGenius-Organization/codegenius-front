@@ -1,0 +1,116 @@
+
+.container-filter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search_section {
+    display: flex;
+    gap: 8px;
+}
+
+.input_icon {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    
+}
+
+.icon-search{
+    font-size: 24px;
+    color: #4476E0;
+}
+
+.input_icon > .icon {
+    padding: 12px 0px 12px 20px;
+}
+
+.input_icon > input {
+    font-family: 'Titillium Web';
+    font-size: 16px;
+    font-weight: normal;
+    color: #000;
+    
+    border: none;
+    text-align: start;
+    
+    padding-left: 10px;
+    
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+    width: 293px;
+    height: 100%;
+}
+
+.input_icon > input:focus {
+    outline: none;
+}
+
+.search_section > button {
+    width: 87px;
+    
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    
+    background-color: #4476E0;
+    
+    font-family: 'Titillium Web';
+    font-size: 16px;
+    color: #FFF;
+    
+    text-align: center;
+}
+
+.search_section > select {
+    background-color: #FFF;
+    
+    width: 141px;
+    
+    border-radius: 15px;
+    
+    padding-left: 20px;
+    
+    font-family: 'Titillium Web';
+    font-size: 16px;
+    color: #000;
+}
+
+.search_section > select:focus {
+    outline: none;
+}
+
+.filter_section {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.filter_section > span {
+    font-family: 'Titillium Web';
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.filter_section > select {
+    background-color: transparent;
+    border: none;
+    font-family: 'Titillium Web';
+    font-size: 16px;
+    color: #FFF;
+}
+
+.item-filter{
+    background-color: #121526;
+}
+
+

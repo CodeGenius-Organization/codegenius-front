@@ -1,0 +1,66 @@
+.form-content{
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-content>input, .password-login{
+    border-radius: 20px;
+    border: 1px solid #FFF; 
+    background-color: transparent;
+    padding: 10px;
+    color: #fff;
+    transition: 0.5s ease;
+}
+
+input:focus{
+    outline: none;
+}
+
+.password-login{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.password-login>input{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    color: #fff;
+}
+
+.form-content>input::placeholder, .password-login>input::placeholder{
+    padding: 0;
+}
+
+
+.form-content>label{
+    margin-bottom: 10px;
+}
+
+.form-content>a, .link-right-button{
+    margin-top: 5px;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.link-right-button{
+    align-self: flex-end;
+}
+
+.button-form{
+    margin-top: 39px;
+    border-radius: 20px;
+    color: #121526;
+    border: none;
+    background: #F070FF;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.input-margin{
+    margin-bottom: 27px;
+}

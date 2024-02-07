@@ -1,161 +1,116 @@
 import React, { useState, useEffect } from "react";
-import CourseContent from "./CourseContent";
 import api from '../../../Api'
+// import Course from '../course/Course'
 
-import style from "./Course.module.css"
-import img from "../../../img/video.png"
+import './Course.css'
 
-import ModuleList from "../../../components/student-module-lesson/ModuleList"
+import CourseTopBar from './components/course-top-bar/CourseTopBar'
+import Filters from '../../../shared/components/filter/Filter'
+import CardLesson from '../components/card-lesson/CardLesson'
+import CoursesJson from './CoursesJson'
 
-import { MdKeyboardArrowRight } from 'react-icons/md'
-import TopBar from "./TopBar";
-import SingleAnswerQuestion from "../../../components/questions/SingleAnswerQuestion"
-import Exercises from "./Exercises";
-import FriendCard from "../../student-social/FriendCard"
+function LandingPage() {
+    const [selectedCategory, setSelectedCategory] = useState('Todos');
+    const [coursesCache, setCoursesCache] = useState({});
+    const [courses, setCourses] = useState([])
+    const [selectedCardId, setSelectedCardId] = useState(null);
 
-function Course({ courseId, handleUnselectCourse }) {
-    const arrowStyle = { color: "#FFF", width: "24px", height: "24px" }
-    // useState
-    const [course, setCourse] = useState({});
-    const [currentTab, setCurrentTab] = useState('Introdução');
-    const [firstLesson, setFirstLesson] = useState({});
-    const [currentContent, setCurrentContent] = useState();
-    const [currentLesson, setCurrentLesson] = useState({});
+    const courseList = CoursesJson();
+    const [courseListVariable, setCourseListVariale] = useState(courseList);
 
-
-    // useState
-
-    const getCourseDetails = async () => {
-        try {
-            const response = await
-                api.get(`course/courses/${courseId}`,
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Authorization": `Bearer ${sessionStorage.getItem("authToken")}`
-                        }
-                    });
-            if (response.status === 200) {
-                console.log(response.data)
-                setCourse(response.data);
-            }
-
-        } catch (error) {
-            console.log(error);
-            throw new Error("Ocorreu um erro interno");
-        }
+    const handleTabClick = (category) => {
+        setSelectedCategory(category)
     }
 
-    useEffect(() => {
-        getCourseDetails();
-    }, [courseId, firstLesson, currentLesson])
+    function filterCategory(categorySelected) {
 
-
-    useEffect(() => {
-        if (Object.keys(course).length === 0) {
-            setCurrentContent('<p>Carregando...</p>');
+        if (categorySelected === "All") {
+            setCourseListVariale(courseList)
         } else {
-            setCurrentContent(
-                <CourseContent
-                    media={img}
-                    lessonTitle={course.title}
-                    lessonContent={course.contentDescription}
-                />
-            );
+            const newArray = []
+
+            for (let i = 0; i < courseList.length; i++) {
+                const categoria = courseList[i].categories;
+                for (let j = 0; j < categoria.length; j++) {
+                    if (categoria[j].category == categorySelected) {
+                        newArray.push(courseList[i])
+                    }
+                }
+            }
+            setCourseListVariale(newArray);
         }
-    }, [course])
+    }
+
+
+
+
+    const handleCardClick = (courseId) => {
+        // tentativa falha de fazer o navegador armazenar a última página acessada antes de redirecionar
+        // pra poder usar o botão de voltar página do navegador...
+        // window.history.pushState(null, null, "/");
+        // window.dispatchEvent(new Event('popstate'));
+
+        setSelectedCardId(courseId)
+    }
+
+    const getCourses = async () => {
+        try {
+            if (coursesCache[selectedCategory]) {
+                setCourses(coursesCache[selectedCategory])
+            } else {
+                const response = await
+                    api.get(`course/courses/category/Desenvolvimento`,
+                        {
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": `Bearer ${sessionStorage.getItem("authToken")}`
+                            }
+                        });
+                if (response.status === 200) {
+                    // console.log(response.data)
+                    // setCourses(response.data);
+                    // setCoursesCache({...coursesCache, [selectedCategory]: response.data})
+                }
+            }
+        } catch (error) {
+            console.log(error)
+            throw new Error("Ocorreu um erro interno")
+        }
+    }
 
     useEffect(() => {
-        handleShowContent('Introdução');
-    }, [firstLesson, currentLesson])
-
-    const changeTab = (tabName) => {
-        setCurrentTab(tabName);
-    }
-
-    // handle events
-    const handleBreadcrumbClick = () => {
-        handleUnselectCourse(null);
-    }
-
-    const handleLessonSelection = (lesson) => {
-        setCurrentLesson(lesson);
-        setFirstLesson(lesson.lessonContent);
-    }
-
-    function handleShowContent(selectedTab) {
-        switch (selectedTab) {
-            case 'Introdução':
-                setCurrentContent(<CourseContent
-                    media={img}
-                    lessonTitle={firstLesson && firstLesson.title}
-                    lessonContent={firstLesson && firstLesson.content}
-                />);
-                setCurrentTab('Introdução');
-                break;
-            case 'Exercícios':
-                setCurrentContent(<Exercises />)
-                setCurrentTab('Exercícios');
-                break;
-            case 'Prova':
-                setCurrentContent(<FriendCard />)
-                setCurrentTab('Prova');
-                break;
-            default:
-                setCurrentContent(<CourseContent
-                    media={img}
-                    lessonTitle={course.title}
-                    lessonContent={course.contentDescription}
-                />)
-                break;
-        }
-    }
-
-    // let selectedTab;
-    // if (currentTab === "Introdução") {
-    //     selectedTab = <CourseContent
-    //         media={img}
-    //         lessonTitle={firstLesson.title}
-    //         lessonContent={firstLesson.content}
-    //     />
-    // } else if (currentTab === "Exercícios") {
-    //     selectedTab = <Exercises />
-    // } else if (currentTab === "Prova") {
-    //     selectedTab = <FriendCard />
-    // }
+        // setSelectedCardId(null);
+        getCourses();
+    }, [selectedCategory, coursesCache, selectedCardId]);
 
     return (
-        <>
-            {/* <div className={style.container}>
-                <div className={style.left_section}>
 
-                </div> */}
-            <div className={style.main_section}>
-                {/* TODO: componentizar o breadcrumb */}
-                <div className={style.breadcrumb}>
-                    <span className={style.breadcrumb_element} onClick={handleBreadcrumbClick}>
-                        Cursos
-                    </span>
-                    <MdKeyboardArrowRight style={arrowStyle} />
-                    <span className={`${style.breadcrumb_element} ${style.now}`}>
-                        {course.title}
-                    </span>
-                </div>
-                <div className={style.content}>
-                    <ModuleList courseId={course.id} onLessonClick={handleLessonSelection} />
-                    <div className={style.learn_section}>
-                        {currentLesson.id &&
-                            <TopBar changeTab={handleShowContent} currentTab={currentTab} />
-                        }
-                        {course &&
-                            currentContent
-                        }
+        <>
+            <div className="main-section-course">
+                <CourseTopBar
+                    onChangeTab={handleTabClick}
+                    currentCategory={selectedCategory}
+                    onFilterCategory={filterCategory}
+                />
+                <Filters />
+                {courseListVariable.length === 0 ? (
+                    <div className="empty-courses">
+                        <span className="not-found-courses">Cursos não encontrados!</span>
                     </div>
-                </div>
+                ) : (
+                    <>
+                        <div className="course-list">
+                            {
+                                courseListVariable.map((course) => (
+                                    <CardLesson onCardClick={handleCardClick} key={course.id} course={course} />
+                                ))
+                            }
+                        </div>
+                    </>
+                )}
             </div>
-            {/* </div> */}
         </>
     )
 }
 
-export default Course
+export default LandingPage

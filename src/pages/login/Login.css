@@ -1,0 +1,127 @@
+.modal-content{
+    color: #fff;
+    background: #121526;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+}
+
+.login-form{
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-content{
+    font-family: 'Titillium Web', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 55%;
+    height: 80%;
+}
+
+.login-content>p{
+    font-size: 30px;
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.logo-container>p{
+    font-size: 24px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.img-container{
+    width: 50%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('./assets/cat-login.png');
+    border-radius: 0px 20px 20px 0px;
+}
+
+.teste{
+    background-image: url('./assets/cat-register.png');   
+}
+
+.linear-gradient{
+    background: linear-gradient(90deg, #121526 0%, rgba(18, 21, 38, 0.00) 46.13%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+.linear-gradient>p{
+    font-family: 'Oxanium', sans-serif;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.close-icon{
+    margin: 40px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.error {
+    border: 1px solid #F00 !important;
+}
+
+@media screen and (max-width: 740px){
+
+    .modal-content{
+        flex-direction: column-reverse;
+        justify-content: start;
+    }
+
+    .login-form{
+        width: 100%;
+        height: 80%;
+        padding: 0px;
+
+    }
+    
+    .login-content{
+        justify-content: space-around;
+        width: 80%;
+        height: 80%;
+    }
+
+    .img-container{
+        background:none;
+        width: 100%;
+        height: auto;
+       
+    }
+
+    .linear-gradient{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .linear-gradient>p{
+        display: none;
+    }
+
+    .close-icon{
+        margin: 30px;
+        font-size: 30px;
+    }
+
+}
