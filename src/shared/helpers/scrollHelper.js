@@ -2,9 +2,6 @@ function scrollToHelper(detail){
 
     const {scroll: scrollDiv} = detail.target.dataset
 
-    // const scroll = detail.target.dataset.scroll
-    // const scrollDiv = scroll;
-
     const element = document.querySelector(scrollDiv); 
     if(!element)
       return;

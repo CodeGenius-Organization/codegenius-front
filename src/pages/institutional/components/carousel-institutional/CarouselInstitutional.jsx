@@ -1,6 +1,6 @@
-import "./CarouselInstitucional.css";
+import "./CarouselInstitutional.css";
 import codegenius_logo from '../../../../shared/assets/codegenius.svg';
-import ModaltoForm from '../modal-to-form/ModalToForm';
+
 import { useState, useEffect } from 'react';
 
 const textos = [
@@ -38,9 +38,9 @@ const textos = [
 ]
 
 function CarouselLine({iterador, step, setIterador}){
-    return <div onClick={() => setIterador(step)} className={`institucional-line-box ${iterador === step && 'institucional-line-box-bold'}`}>
-                <p className={iterador !== step && 'institucional-hide'} >{`0${iterador + 1}`}</p>
-                <div className={`institucional-line ${iterador === step && 'institucional-bold'}`}></div>
+    return <div onClick={() => setIterador(step)} className={`institucional-line-box ${iterador === step ? 'institucional-line-box-bold' : ""}`}>
+                <p className={iterador !== step ? 'institucional-hide' : ""} >{`0${iterador + 1}`}</p>
+                <div className={`institucional-line ${iterador === step ? 'institucional-bold' : ""}`}></div>
             </div>
 }
 
@@ -55,24 +55,10 @@ function CarouselSteps({iterador, setIterador}) {
     )
 }
 
-function Carousel() {
+function CarouselInstitutional() {
     const [iterador, setIterador] = useState(0);
 
-    const [modalVisible, setModalVisible] = useState(false);
-
-    useEffect(() => {
-        const body = document.getElementsByTagName("body")[0];
-        modalVisible ? (body.style.overflow = "hidden") : (body.style.overflow = "auto");
-    }, [modalVisible]);
-
-    function handleVisible() {
-        setModalVisible(!modalVisible);
-    }
-
-    function handleVisibleCad() {
-        setModalVisible(!modalVisible);
-        document.querySelector(".toggle-cad-reg").click()
-    }
+    useEffect(() => {},[]);
 
     function atualizarIterador() {
         let valorNovo = iterador + 1
@@ -101,19 +87,12 @@ function Carousel() {
                     <h2>{textos[iterador].subtitulo}</h2>
                     <p>{textos[iterador].texto}</p>
                 </div>
-                <button className='institucional-cadastre-se' onClick={handleVisibleCad}>Cadastre-se</button>
+                <button className='institucional-cadastre-se'>Cadastre-se</button>
             </div>
-            <div className="reset-modal-pos">
-            <ModaltoForm
-                toggleModal={handleVisible}
-                visible={modalVisible}
-            />    
+            <div className="reset-modal-pos">  
             </div>
-            
         </>
     );
 }
 
-
-export default Carousel;
-
+export default CarouselInstitutional;

@@ -1,12 +1,12 @@
-import "./CardInstitucional.css";
+import "./CardInstitutional.css";
 import { useState, useEffect } from 'react';
 
-import cardOneImg1 from '../../assets/Icon_Mission_white.svg';
-import cardOneImg2 from '../../assets/Icon_Mission_hover.svg';
-import cardTwoImg1 from '../../assets/Icon_Vision_white.svg';
-import cardTwoImg2 from '../../assets/Icon_Vision_hover.svg';
-import cardThreeImg1 from '../../assets/Icon_Values_white.svg';
-import cardThreeImg2 from '../../assets/Icon_Values_hover.svg';
+import cardOneImg1 from '../../assets/icon-mission-white.svg';
+import cardOneImg2 from '../../assets/icon-mission-hover.svg';
+import cardTwoImg1 from '../../assets/icon-vision-white.svg';
+import cardTwoImg2 from '../../assets/icon-vision-hover.svg';
+import cardThreeImg1 from '../../assets/icon-values-white.svg';
+import cardThreeImg2 from '../../assets/icon-values-hover.svg';
 
 function CardInstitucional() {
     const [cardOneImage, setCardOneImage] = useState(cardOneImg1)

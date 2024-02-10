@@ -1,7 +1,7 @@
 import React from "react";
 import "./CardOurTeam.css";
 
-function CardNossaEquipe(props) {
+function CardOurTeam(props) {
     
 
     return (
@@ -19,4 +19,4 @@ function CardNossaEquipe(props) {
     );
 }
 
-export default CardNossaEquipe;
+export default CardOurTeam;
