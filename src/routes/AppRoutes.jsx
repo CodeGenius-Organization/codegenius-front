@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 //CSS reponsável no App.css
 
 import Login from '../pages/login/Login'
+import Home from '../pages/home/Institucional'
 import HomeStudent from '../pages/student/HomeStudent'
 import HomeTeacher from '../pages/teacher/HomeTeacher'
 import ContactUs from '../pages/student/contact-us/ContactUs'
@@ -20,6 +21,7 @@ function AppRoutes() {
             <BrowserRouter>  
                 <Routes>
                     <Route path='/' element={<Login/>} />
+                    <Route path='/home' element={<Home/>} />
                     <Route path='*' element={<NotFound/>}/>
                     <Route path='/student' element={<HomeStudent/>} >
                         <Route path='course' element={<Course/>} />        
@@ -32,7 +34,7 @@ function AppRoutes() {
                     <Route path='/teacher' element={<HomeTeacher/>} >
                         <Route path='course' element={<p>Ola Professor</p>}/>
                     </Route>
-                </Routes>
+                </Routes> 
             </BrowserRouter>
         </>
     )
