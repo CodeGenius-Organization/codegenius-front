@@ -198,7 +198,7 @@ function FormRegister({ changeForm, modalVisible }) {
     <>
       <p>Cadastre-se!</p>
       <form className="form-content" onSubmit={handleSubmit} autoComplete='off'>
-        <div className="form-content name">
+        <div className="form-content name-register">
           <div className='vertical-content'>
             <label>Nome:</label>
             <input

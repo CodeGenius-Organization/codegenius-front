@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { FiLogIn, FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import scrollToHelper from "../../../../routes/AppRoutes";
 
-function NavBar({ onLoginModal }) {
+function NavBar() {
+  
+  const navigate = useNavigate();
   
   function handleMenuMobile() {
     const menu = document.getElementById("navbar-mobile");
@@ -29,7 +32,7 @@ function NavBar({ onLoginModal }) {
           <li className="institucional-nav_button" data-scroll="#sobre_nos" onClick={scrollToHelper}>SOBRE NÓS</li>
           <li className="institucional-nav_button" data-scroll="#codegenius" onClick={scrollToHelper}>CODEGENIUS</li>
           <li className="institucional-nav_button" data-scroll="#equipe" onClick={scrollToHelper}>EQUIPE</li>
-          <li onClick={onLoginModal}>
+          <li onClick={() => navigate("/login")}>
             <FiLogIn />
           </li>
         </ul>

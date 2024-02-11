@@ -33,13 +33,14 @@ function CardLesson({ course, onCardClick }) {
                         <div className="info_card">
                             <span className="card_title">{course.title}</span>
                             <div className="languages">
-                                {course.languages.map((language) => 
-                                    <React.Fragment key={language.id}>
-                                        <span>{language.language}</span>
-                                        {/* <FaCircle style={ circleStyle } /> */}
-                                    </React.Fragment> 
-                                    
-                                )}
+                            { course.languages.length > 0 ?
+                                    course.languages.map((language, index) =>
+                                        <React.Fragment key={language.id}>
+                                            {index > 0  ? <FaCircle className='icon-circle-card-lesson' /> : ""}
+                                            <span >{language.language}</span>
+                                        
+                                        </React.Fragment>
+                                    ) : <span>N/A</span>}
                             </div>
                             <span>Feito por: Helen Pêra</span>
                             <span>Em andamento</span>
@@ -49,7 +50,7 @@ function CardLesson({ course, onCardClick }) {
                                 <MdOutlineStarOutline className='rate-course' />
                                 <MdOutlineStarOutline className='rate-course' />
                                 <MdOutlineStarOutline className='rate-course' />
-                                <span>4.0 (1987)</span>
+                                <span>{course.stars.toFixed(1)} (1987)</span>
                             </div>
 
                         </div>

@@ -16,13 +16,11 @@ function Filters() {
                         <input type="text" placeholder="Pesquise aqui"/>
                     </div>
                     <button>Buscar</button>
-                    <select name="" id="">
-                        <option value="0">Linguagem</option>
-                    </select>
                 </div>
                 <div className="filter_section">
                     <span>Filtrar por:</span>
                     <select className="select-filter" name="" id="">
+                        <option className="item-filter" value="0">Nenhum</option>
                         <option className="item-filter" value="1">Avaliação</option>
                         <option className="item-filter" value="2">Alfabética (A a Z)</option>
                         <option className="item-filter" value="3">Alfabética (Z a A)</option>
