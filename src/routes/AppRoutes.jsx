@@ -16,6 +16,7 @@ import Social from '../pages/student/social/Social'
 import MyCourses from '../pages/student/my-courses/MyCourses'
 import Course from '../pages/student/course/Course'
 import NotFound from '../pages/not-found/NotFound'
+import CourseDetail from '../pages/student/course-detail/CourseDetail'
 
 function AppRoutes() {
  
@@ -24,10 +25,11 @@ function AppRoutes() {
             <BrowserRouter>  
                 <Routes>
                     <Route path='/login' element={<Login/>} />
-                    <Route path='/' element={<Institutional/>} />
+                    <Route exact path='/'  element={<Institutional/>} />
                     <Route path='*' element={<NotFound/>}/>
-                    <Route path='/student' element={<HomeStudent/>} >
-                        <Route path='course' element={<Course/>} />        
+                    <Route path='/student' element={<HomeStudent/>} >                        
+                        <Route path='course' element={<Course/>}/>
+                        <Route exact path='/student/course/:name' element={<CourseDetail/>} />                 
                         <Route path='contact' element={<ContactUsS/>} />    
                         <Route path='settings' element={<Settings/>} />    
                         <Route path='profile' element={<ProfileS/>} />    

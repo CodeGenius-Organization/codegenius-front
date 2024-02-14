@@ -41,6 +41,7 @@ function FormRegister({ changeForm, modalVisible }) {
 
   
   function validateEmailMindTech(email) {
+    console.log(email)
     if("mindtech.code" === email.split[1]){
         return true
     }
@@ -102,7 +103,7 @@ function FormRegister({ changeForm, modalVisible }) {
       return
     }
 
-    if(validateEmailMindTech){
+    if(validateEmailMindTech(emailElement.value)){
       emailElement.classList.add("error")
       divConfirmPassElement.classList.add("error")
       divPasswordElement.classList.add("error")

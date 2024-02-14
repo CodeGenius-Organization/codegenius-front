@@ -6,20 +6,18 @@ import img3 from './assets/shadow-favorite.svg';
 import { MdOutlineFavorite, MdOutlineFavoriteBorder, MdOutlineStarOutline, MdOutlineStarPurple500, MdOutlineStarHalf } from "react-icons/md";
 
 import { FaCircle } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
-function CardLesson({ course, onCardClick }) {
+function CardLesson({ course }) {
 
     const [favorite, setFavorite] = useState(false)
-
-    const handleCardClick = (courseId) => {
-        onCardClick(courseId)
-    }
+    const navigate =useNavigate()
 
     return (
         <>
             <div className="cardCourse">
-                <div className="imgCourse">
-                    <img src={img} alt='image' onClick={() => handleCardClick(course.id)} />
+                <div className="imgCourse" onClick={() => navigate(`/student/course/${course.title.replaceAll(" ","-").toLowerCase()}`,{state: { id: course.id}})}>
+                    <img src={img} alt='image' />
                     <div className="fav">
                         {!favorite ?
                             <MdOutlineFavoriteBorder className='favorite' onClick={() => setFavorite(!favorite)} /> :
@@ -28,8 +26,8 @@ function CardLesson({ course, onCardClick }) {
                     </div>
                 </div>
 
-                <div className="containerCourse" onClick={() => handleCardClick(course.id)}>
-                    <div className="card_lesson">
+                <div className="containerCourse">
+                    <div className="card_lesson"onClick={() => navigate(`/student/course/${course.title.replaceAll(" ","-").toLowerCase()}`,{id: course.id})}>
                         <div className="info_card">
                             <span className="card_title">{course.title}</span>
                             <div className="languages">
@@ -50,7 +48,7 @@ function CardLesson({ course, onCardClick }) {
                                 <MdOutlineStarOutline className='rate-course' />
                                 <MdOutlineStarOutline className='rate-course' />
                                 <MdOutlineStarOutline className='rate-course' />
-                                <span>{course.stars.toFixed(1)} (1987)</span>
+                                <span>4.0 (1987)</span>
                             </div>
 
                         </div>
