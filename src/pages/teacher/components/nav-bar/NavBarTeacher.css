@@ -85,7 +85,7 @@
     width: 100%;
 }
 
-.list-menu-container>ul>li{
+.list-menu-container>ul>a>li{
     display: flex;
     cursor: pointer;
     align-items: center;

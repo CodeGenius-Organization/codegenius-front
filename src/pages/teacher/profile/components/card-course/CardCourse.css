@@ -1,0 +1,45 @@
+.container-list-course{
+    height: auto;
+    display: flex;
+    color: #FFF;
+}
+
+.card-list-course{
+    width: 244px;
+    height: 192px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+.container-list-course .info-list-course{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    margin-left: 26px;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    color: #FFF;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 24px;
+}
+
+.bold{
+    font-weight: 700;
+    color: #FFF;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+
+.container-list-course .info-list-course span{
+    color: #fff;
+}
+
+
+.star-list-course{
+    font-size: 28px;
+    color: #fff500;
+}
+
+.radio-list-course{
+    display: flex;
+}

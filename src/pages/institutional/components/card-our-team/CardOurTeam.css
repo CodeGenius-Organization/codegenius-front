@@ -1,0 +1,49 @@
+.institucional-card-equipe {
+    width: 20rem;
+    height: 20rem;
+    flex-shrink: 0;
+}
+
+.institucional-image{
+    width: 20rem;
+    height: 20rem;
+    border-radius: 20px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.institucional-shadow {
+    display: none;
+}
+
+.institucional-card-geral:hover .institucional-shadow {
+    position: relative;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0px 0px 20px 20px;
+    background: rgba(24, 29, 49, 0.50);
+    bottom: 6.5rem;
+}
+
+.institucional-shadow>h1 {
+    color: #FFFFFF;
+    text-align: center;
+    font-family: 'Titillium Web';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.institucional-shadow>h2 {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Titillium Web';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

@@ -1,0 +1,19 @@
+.contact-container{
+    display: flex;
+    flex-direction: row;
+    background-color: #121526;
+    padding: 50px 0 50px 50px;
+    width: 100%;
+    /* justify-content: center; */
+}
+
+.img-contact-container{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    padding-right: 30px;
+}
+
+.img-contact{
+    width: 90%;
+}

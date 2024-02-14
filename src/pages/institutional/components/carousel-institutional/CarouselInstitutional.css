@@ -1,0 +1,121 @@
+.institucional-codegenius .institucional-right-side{
+    width: 570px;
+    /* border: solid 2px goldenrod; */
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+
+.institucional-codegenius .institucional-right-side .institucional-carroussel {
+    display: flex;
+    margin-bottom: 1.2rem;
+}
+
+.institucional-line-box {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.institucional-line-box>p {
+    color: #AFAFAF;
+    font-family: 'Raleway';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.institucional-line-box-bold>p {
+    color: #FFF;
+}
+
+.institucional-carroussel .institucional-line {
+    display: flex;
+    width: 50px;
+    height: 0px;
+    flex-shrink: 0;
+    border: solid 0.5px #AFAFAF;
+}
+
+.institucional-carroussel .institucional-bold {
+    border: solid 1px #FFF;
+}
+
+.institucional-hide {
+    opacity: 0;
+}
+
+.institucional-logomarca-codegenius {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+}
+
+.institucional-logomarca-codegenius p {
+    color: #FFF;
+    font-family: 'DM Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.institucional-right-side .institucional-text{
+    text-align: end;
+    color: #FFF;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.institucional-right-side .institucional-text h1{
+    font-family: 'Raleway';
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 200.023%;
+}
+
+.institucional-right-side .institucional-text h2{
+    font-family: 'Raleway';
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%; 
+}
+
+.institucional-right-side .institucional-text p{
+    font-family: 'Raleway';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%;
+}
+
+.institucional-codegenius .institucional-right-side .institucional-cadastre-se{
+    border-radius: 20px;
+    border: 1px solid #F070FF;
+    width: 170px;
+    height: 32px;
+    padding: 0px 40px;
+    font-family: 'Raleway';
+    color: #121526;
+    background-color: #F070FF;
+    cursor: pointer;
+    margin-top: 1.2rem;
+}
+
+.institucional-codegenius .institucional-right-side .institucional-cadastre-se:hover {
+    border: none;
+    box-shadow: 0px 0px 8px 2px rgba(234, 144, 225, 0.institucional-5);
+}
+
+.institucional-reset-modal-pos{
+    position: absolute;
+    top: 0;
+    left: 0;
+}

@@ -41,6 +41,7 @@ function FormRegister({ changeForm, modalVisible }) {
 
   
   function validateEmailMindTech(email) {
+    console.log(email)
     if("mindtech.code" === email.split[1]){
         return true
     }
@@ -102,7 +103,7 @@ function FormRegister({ changeForm, modalVisible }) {
       return
     }
 
-    if(validateEmailMindTech){
+    if(validateEmailMindTech(emailElement.value)){
       emailElement.classList.add("error")
       divConfirmPassElement.classList.add("error")
       divPasswordElement.classList.add("error")
@@ -198,7 +199,7 @@ function FormRegister({ changeForm, modalVisible }) {
     <>
       <p>Cadastre-se!</p>
       <form className="form-content" onSubmit={handleSubmit} autoComplete='off'>
-        <div className="form-content name">
+        <div className="form-content name-register">
           <div className='vertical-content'>
             <label>Nome:</label>
             <input

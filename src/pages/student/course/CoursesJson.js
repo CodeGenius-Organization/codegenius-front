@@ -8,6 +8,7 @@ export default function courses(){
                 "contentDescription": "Abordaremos POO, testes, segurança e muito mais",
                 "image": "Endereço da imagem do curso",
                 "available": true,
+                "stars": 5.0,
                 "languages": [
                     {
                         "id": "78c856bb-551a-46d2-9947-803fe6dd80dc",
@@ -32,6 +33,7 @@ export default function courses(){
                 "contentDescription": "Abordaremos diretivas, property binding, testes e muito mais",
                 "image": "Endereço da imagem do curso",
                 "available": true,
+                "stars": 3.6,
                 "languages": [
                     {
                         "id": "bbc856bb-551a-46d2-9947-803fe6dd80dc",
@@ -68,6 +70,7 @@ export default function courses(){
                 "contentDescription": "Sintaxe de DML, DSL",
                 "image": "Endereço da imagem do curso",
                 "available": true,
+                "stars": 3.5,
                 "languages": [
                     {
                         "id": "acc856bb-551a-46d2-9947-803fe6dd80dc",
@@ -88,6 +91,7 @@ export default function courses(){
                 "contentDescription": "Abordaremos conceitos de vulnerabilidades e risco em projetos",
                 "image": "Endereço da imagem do curso",
                 "available": true,
+                "stars": 0.4,
                 "languages": [
 
                 ],

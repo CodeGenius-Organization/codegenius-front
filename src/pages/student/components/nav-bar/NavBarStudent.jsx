@@ -23,7 +23,7 @@ function NavBarStudent() {
   const [navigateMenu, setNavigateMenu] = useState('cursos')
   const [menuToggle, setMenuToggle] = useState(false)
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
 
 
   function navigateLeft(teste) {
@@ -115,10 +115,6 @@ function NavBarStudent() {
                 <p className={`${menuToggle ? 'text-toggle' : ''}`}>CONFIGURAÇÃO</p>
                 </li>
                 </Link>
-                <li className={`${menuToggle ? 'center-items' : ''} cursor-none`}>
-                  <input id="toggle" className={`toggle `} type="checkbox"></input>
-                  <label htmlFor="toggle"></label>
-                </li>
               </ul>
             </div>
 

@@ -1,0 +1,312 @@
+    .institucional-gradient {
+        width: 100%;
+        background-color: #121526;
+        max-width: 1920px;
+        position: absolute;
+        z-index: -1;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        overflow: hidden;
+        height: 3348px;
+    }
+
+    .institucional-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 50rem;
+    }
+
+    .institucional-blur {
+        position: relative;
+        width: 600px;
+        height: 600px;
+        border-radius: 100%;
+        filter: blur(200px);
+    }
+
+    .institucional-blur.institucional-purple {
+        background: radial-gradient(50% 50% at 50% 50%, #7F56BC 0%, rgba(127, 86, 188, 0.00) 100%);
+    }
+
+    .institucional-blur.institucional-pink {
+        background: radial-gradient(50% 50% at 50% 50%, #F070FF 0%, rgba(240, 112, 255, 0.00) 100%);
+    }
+
+    .institucional-side.institucional-right {
+        padding-top: 40rem;
+    }
+
+    .institucional-side.institucional-left .institucional-blur:nth-child(1),
+    .institucional-side.institucional-left .institucional-blur:nth-child(2),
+    .institucional-side.institucional-left .institucional-blur:nth-child(3) {
+        right: 10rem;
+        bottom: 10rem;
+    }
+
+    .institucional-side.institucional-right .institucional-blur:nth-child(1),
+    .institucional-side.institucional-right .institucional-blur:nth-child(2),
+    .institucional-side.institucional-right .institucional-blur:nth-child(3) {
+        position: relative;
+        bottom: 10rem;
+        left: 10rem;
+    }
+
+    .institucional-background .institucional-container-institucional {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .institucional-content {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .institucional-home {
+        height: 571px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        /* border: solid 2px fuchsia; */
+    }
+
+    .institucional-home .institucional-left-side {
+        /* border: solid 2px firebrick; */
+        display: flex;
+        flex-direction: column;
+        width: 570px;
+        justify-content: center;
+        gap: 32px 30px;
+        flex-wrap: wrap;
+    }
+
+    .institucional-home .institucional-left-side h1,
+    p {
+        color: #fff;
+        font-family: 'Raleway';
+    }
+
+    .institucional-home .institucional-left-side h1 {
+        font-size: 2.5rem;
+        font-style: normal;
+        font-weight: 700;
+    }
+
+    .institucional-home .institucional-left-side p {
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 300;
+    }
+
+    .institucional-home .institucional-left-side .institucional-bt-home {
+        display: flex;
+        align-items: flex-end;
+        gap: 30px;
+    }
+
+    .institucional-home .institucional-left-side .institucional-bt-home .institucional-cadastre-se {
+        border-radius: 20px;
+        border: 1px solid #F070FF;
+        width: 170px;
+        height: 32px;
+        padding: 0px 40px;
+        font-family: 'Raleway';
+        color: #F070FF;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .institucional-home .institucional-left-side .institucional-bt-home .institucional-cadastre-se:hover {
+        background-color: #F070FF;
+        color: #121526;
+        box-shadow: 0px 0px 8px 2px rgba(234, 144, 225, 0.5);
+    }
+
+    .institucional-home .institucional-left-side .institucional-bt-home .institucional-saiba-mais {
+        border-radius: 20px;
+        border: 1px solid #F070FF;
+        width: 170px;
+        height: 32px;
+        padding: 0px 40px;
+        font-family: 'Raleway';
+        color: #121526;
+        background-color: #F070FF;
+        cursor: pointer;
+    }
+
+    .institucional-home .institucional-left-side .institucional-bt-home .institucional-saiba-mais:hover {
+        border: none;
+        box-shadow: 0px 0px 8px 2px rgba(234, 144, 225, 0.5);
+    }
+
+    .institucional-right-side {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .institucional-right-side .institucional-home-img {
+        width: 28rem;
+        position: relative;
+        animation: mymove 3s ease-in infinite;
+    }
+
+    @keyframes mymove {
+        0% {
+            top: 0px;
+            transform: scaleX(1.0);
+        }
+
+        50% {
+            top: 6px;
+            transform: scaleX(1.006);
+        }
+
+        100% {
+            top: 0px;
+            transform: scaleX(1.0);
+        }
+    }
+
+    /* sobre nós */
+    .institucional-sobre-nos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .institucional-sobre-nos .institucional-text-sobre-nos {
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+    }
+
+    .institucional-sobre-nos .institucional-text-sobre-nos h1 {
+        font-family: 'Raleway';
+        font-size: 2.5rem;
+        font-style: normal;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 80.009px;
+    }
+
+    .institucional-sobre-nos .institucional-text-sobre-nos p {
+        color: #FFF;
+        text-align: center;
+        font-family: Raleway;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 26px;
+    }
+
+    /* codegenius */
+    .institucional-codegenius {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 96px;
+    }
+
+    .institucional-codegenius .institucional-left-side>img {
+        width: 25rem;
+    }
+
+    .institucional-codegenius .institucional-left-side .institucional-codegenius-img {
+        position: relative;
+        animation: mymove 3s ease-in infinite;
+    }
+
+    /* Nossa Equipe */
+    .institucional-equipe {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .institucional-title-equipe {
+        color: #FFF;
+        text-align: center;
+        font-family: 'Raleway';
+        font-size:2.5rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 200.023%;
+        text-transform: uppercase;
+    }
+
+    .institucional-cards-equipe {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-top: 30px;
+    }
+
+    /* footer */
+    .institucional-footer {
+        height: 133px;
+        width: 100%;
+        background-color: #100013;
+        display: flex;
+        justify-content: center;
+    }
+
+    .institucional-footer .institucional-container-footer {
+        width: 65%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        /* border: solid 2px firebrick; */
+    }
+
+    .institucional-footer .institucional-logo-mindtech h1 {
+        color: #FFF;
+        font-family: 'Oxanium';
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .institucional-footer .institucional-menu {
+        color: #FFF;
+        font-family: 'Titillium Web';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        display: flex;
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 100px;
+        list-style-type: none
+    }
+
+    .institucional-footer .institucional-redes-sociais {
+        /* display: flex; */
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .institucional-footer .institucional-redes-sociais .institucional-facebook,
+    .institucional-instagram,
+    .institucional-whatsapp {
+        display: flex;
+        width: 32px;
+        padding: 6px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100px;
+        border: 1px solid #FFF;
+    }
