@@ -28,11 +28,11 @@
     }
 
     .institucional-blur.institucional-purple {
-        background: radial-gradient(50% 50% at 50% 50%, #7F56BC 0%, rgba(127, 86, 188, 0.institucional-00) 100%);
+        background: radial-gradient(50% 50% at 50% 50%, #7F56BC 0%, rgba(127, 86, 188, 0.00) 100%);
     }
 
     .institucional-blur.institucional-pink {
-        background: radial-gradient(50% 50% at 50% 50%, #F070FF 0%, rgba(240, 112, 255, 0.institucional-00) 100%);
+        background: radial-gradient(50% 50% at 50% 50%, #F070FF 0%, rgba(240, 112, 255, 0.00) 100%);
     }
 
     .institucional-side.institucional-right {
@@ -94,13 +94,13 @@
     }
 
     .institucional-home .institucional-left-side h1 {
-        font-size: 48px;
+        font-size: 2.5rem;
         font-style: normal;
         font-weight: 700;
     }
 
     .institucional-home .institucional-left-side p {
-        font-size: 24px;
+        font-size: 1.25rem;
         font-style: normal;
         font-weight: 300;
     }
@@ -126,7 +126,7 @@
     .institucional-home .institucional-left-side .institucional-bt-home .institucional-cadastre-se:hover {
         background-color: #F070FF;
         color: #121526;
-        box-shadow: 0px 0px 8px 2px rgba(234, 144, 225, 0.institucional-5);
+        box-shadow: 0px 0px 8px 2px rgba(234, 144, 225, 0.5);
     }
 
     .institucional-home .institucional-left-side .institucional-bt-home .institucional-saiba-mais {
@@ -143,7 +143,7 @@
 
     .institucional-home .institucional-left-side .institucional-bt-home .institucional-saiba-mais:hover {
         border: none;
-        box-shadow: 0px 0px 8px 2px rgba(234, 144, 225, 0.institucional-5);
+        box-shadow: 0px 0px 8px 2px rgba(234, 144, 225, 0.5);
     }
 
     .institucional-right-side {
@@ -154,7 +154,7 @@
     }
 
     .institucional-right-side .institucional-home-img {
-        width: 584.65px;
+        width: 28rem;
         position: relative;
         animation: mymove 3s ease-in infinite;
     }
@@ -162,23 +162,22 @@
     @keyframes mymove {
         0% {
             top: 0px;
-            transform: scaleX(1.institucional-0);
+            transform: scaleX(1.0);
         }
 
         50% {
             top: 6px;
-            transform: scaleX(1.institucional-006);
+            transform: scaleX(1.006);
         }
 
         100% {
             top: 0px;
-            transform: scaleX(1.institucional-0);
+            transform: scaleX(1.0);
         }
     }
 
     /* sobre nós */
     .institucional-sobre-nos {
-        /* height: 558px; */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -193,18 +192,18 @@
 
     .institucional-sobre-nos .institucional-text-sobre-nos h1 {
         font-family: 'Raleway';
-        font-size: 40px;
+        font-size: 2.5rem;
         font-style: normal;
         text-transform: uppercase;
         text-align: center;
-        line-height: 80.institucional-009px;
+        line-height: 80.009px;
     }
 
     .institucional-sobre-nos .institucional-text-sobre-nos p {
         color: #FFF;
         text-align: center;
         font-family: Raleway;
-        font-size: 20px;
+        font-size: 1.25rem;
         font-style: normal;
         font-weight: 300;
         line-height: 26px;
@@ -219,7 +218,7 @@
     }
 
     .institucional-codegenius .institucional-left-side>img {
-        height: 400px;
+        width: 25rem;
     }
 
     .institucional-codegenius .institucional-left-side .institucional-codegenius-img {
@@ -232,15 +231,13 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        border: solid green 3px;
     }
 
     .institucional-title-equipe {
-        border: solid red 1px;
         color: #FFF;
         text-align: center;
         font-family: 'Raleway';
-        font-size: 40px;
+        font-size:2.5rem;
         font-style: normal;
         font-weight: 700;
         line-height: 200.023%;
@@ -252,7 +249,6 @@
         justify-content: space-between;
         flex-direction: row;
         margin-top: 30px;
-        border: solid blue 1px;
     }
 
     /* footer */

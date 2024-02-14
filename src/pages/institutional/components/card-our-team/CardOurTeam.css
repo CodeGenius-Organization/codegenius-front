@@ -1,13 +1,12 @@
 .institucional-card-equipe {
-    width: 23.institucional-125rem;
-    height: 23.institucional-125rem;
+    width: 20rem;
+    height: 20rem;
     flex-shrink: 0;
-    /* border: solid 2px forestgreen; */
 }
 
 .institucional-image{
-    width: 370px;
-    height: 370px;
+    width: 20rem;
+    height: 20rem;
     border-radius: 20px;
     flex-shrink: 0;
     cursor: pointer;
@@ -25,15 +24,15 @@
     align-items: center;
     flex-direction: column;
     border-radius: 0px 0px 20px 20px;
-    background: rgba(24, 29, 49, 0.institucional-50);
-    bottom: 6.institucional-5rem;
+    background: rgba(24, 29, 49, 0.50);
+    bottom: 6.5rem;
 }
 
 .institucional-shadow>h1 {
     color: #FFFFFF;
     text-align: center;
     font-family: 'Titillium Web';
-    font-size: 24px;
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -43,13 +42,8 @@
     color: #FFF;
     text-align: center;
     font-family: 'Titillium Web';
-    font-size: 24px;
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-}
-
-.institucional-card-geral {
-    /* position: absolute; */
-    /* border: solid 2px gray; */
 }

@@ -74,26 +74,26 @@
 
 .institucional-right-side .institucional-text h1{
     font-family: 'Raleway';
-    font-size: 32px;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 200.institucional-023%; /* 64.institucional-007px */
+    line-height: 200.023%;
 }
 
 .institucional-right-side .institucional-text h2{
     font-family: 'Raleway';
-    font-size: 24px;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 130%; /* 31.institucional-2px */
+    line-height: 130%; 
 }
 
 .institucional-right-side .institucional-text p{
     font-family: 'Raleway';
-    font-size: 24px;
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 300;
-    line-height: 130%; /* 31.institucional-2px */
+    line-height: 130%;
 }
 
 .institucional-codegenius .institucional-right-side .institucional-cadastre-se{
