@@ -29,12 +29,12 @@ function Institutional() {
             <NavBar/>
             <div className='institucional-background'>
                 <div className='institucional-gradient'>
-                    <div className="side left">
+                    <div className="institucional-side left">
                         <div className="blur purple"></div>
                         <div className="blur purple"></div>
                         <div className="blur purple"></div>
                     </div>
-                    <div className="side right">
+                    <div className="institucional-side right">
                         <div className="blur pink"></div>
                         <div className="blur pink"></div>
                     </div>
@@ -109,30 +109,30 @@ function Institutional() {
                         </div>
                     </div>    
                 </div>
-                {/* <div className="footer">
-                        <div className="container-footer">
-                            <div className="logo-mindtech">
+                <div className="institucional-footer">
+                        <div className="institucional-container-footer">
+                            <div className="institucional-logo-mindtech">
                                 <h1>MindTech</h1>
                             </div>
-                            <div className="menu">
+                            <div className="institucional-menu">
                                 <li>HOME</li>
                                 <li>SOBRE NÓS</li>
                                 <li>CODEGENIUS</li>
                                 <li>EQUIPE</li>
                             </div>
-                            <div className="redes-sociais">
-                                <div className="facebook">
+                            <div className="institucional-redes-sociais">
+                                <div className="institucional-facebook">
                                     <img src={face} />
                                 </div>
-                                <div className="instagram">
+                                <div className="institucional-instagram">
                                     <img src={insta} />
                                 </div>
-                                <div className="whatsapp">
+                                <div className="institucional-whatsapp">
                                     <img src={whats} />
                                 </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
             </div>
         </div>
     )
