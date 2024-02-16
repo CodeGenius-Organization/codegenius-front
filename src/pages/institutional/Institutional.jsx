@@ -22,15 +22,14 @@ import scrollToHelper from '../../shared/helpers/scrollHelper';
 
 function Institutional() {
 
-    useEffect(() => {},[]);
+    useEffect(() => { }, []);
 
     return (
-        <div className='institucional-institucional-page'>
+        <>
             <NavBar/>
             <div className='institucional-background'>
                 <div className='institucional-gradient'>
                     <div className="institucional-side left">
-                        <div className="blur purple"></div>
                         <div className="blur purple"></div>
                         <div className="blur purple"></div>
                     </div>
@@ -134,7 +133,7 @@ function Institutional() {
                         </div>
                     </div>
             </div>
-        </div>
+        </>
     )
 }
 
