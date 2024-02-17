@@ -1,0 +1,144 @@
+.course-and-mission-painel{
+    /* border:solid red 1px ; */
+    height: auto;
+    width: auto;
+    display: flex;
+}
+
+.mission-painel{
+  /* border: solid blue 1px; */
+  background-color: #121526;
+  width: 384px;
+  height: 433px;  
+}
+
+
+.mission-painel h2{
+    color: #FFF;
+    font-style: normal;
+    font-family: 'Raleway';
+    line-height: normal;
+    font-weight: 700;
+}
+
+
+.mission{
+/* border: solid yellow 1px; */
+height: 129px;
+width: 384px;
+}
+
+.mission-image{
+    /* border: solid lightpink 1px; */
+    width: 128px;
+    height: 128px;
+}
+
+.mission-name{
+    /* border: solid lightsalmon 1px; */
+    width: 150px;
+    color: #FFF;
+    font-style: normal;
+    font-family: 'Raleway';
+    line-height: normal;
+    font-weight: 700;
+    display: flex;
+    float: right;
+    margin-right: 100px;
+}
+
+.mission-legend{
+    /* border: solid lightgreen 1px; */
+    width: 240px;
+    height: 46px;
+    display: flex;
+    float: right;
+    margin-right: 10px;
+    color: #FFF;
+    font-style: normal;
+    font-family: 'Raleway';
+    line-height: normal;
+    font-weight: 500;
+    position: relative;
+    margin-top: 16px;
+}
+
+.mission-info #img2{
+display: flex;
+float: right;
+margin-top: 16px;
+}
+
+/* -------------------------------------------- PAINEL DO CURSO--------------------------------------------- */
+.gap{
+    height: 594;
+    border: 1px solid rgb(255, 255, 255);
+    float: right;
+}
+
+.course-painel{
+    background-color: #121526;
+    width: 384px;
+    height: 433px;    
+}
+
+.course-painel h2{
+    color: #FFF;
+    font-style: normal;
+    font-family: 'Raleway';
+    line-height: normal;
+    font-weight: 700;
+    display: flex;
+    margin-left: 25px;
+}
+
+.course{
+    border: 1px solid white;
+    width: 298px;
+    height: 121px;
+    border-radius: 10px;
+    display: flex;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+ 
+.course-name{
+    width: 150px;
+    color: #FFF;
+    font-style: normal;
+    font-family: 'Raleway';
+    font-size: large;
+    font-weight: 700;
+    display: flex;
+    margin-left: 50px;  
+    margin-top: 10px;
+}
+
+.course-info{
+    /* border: 1px solid red ; */
+    width: 90px;
+    height: 90px;
+    display: flex;
+    position: relative;
+    top: 40px;
+    right: 150px;
+}
+
+.course-info a{
+    color: #FFF;
+    font-style: normal;
+    font-family: 'Raleway';
+    line-height: normal;
+    justify-content: space-between;
+}
+
+.course-info #img5{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    position: absolute;
+    left: 90px;
+    bottom: 13px;
+    float: left;
+}
+

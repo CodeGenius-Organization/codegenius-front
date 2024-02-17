@@ -28,14 +28,14 @@ function CardInstitucional() {
             </div>
             <div className='card-institucional' onMouseEnter={() => handleImageChange(setCardTwoImage, cardTwoImg2)} onMouseLeave={() => handleImageChange(setCardTwoImage, cardTwoImg1)}>
                 <div className='card-content'>
-                    <img className='mission-img' src={cardTwoImage} />
+                    <img className='vision-img' src={cardTwoImage} />
                     <h1>visão</h1>
                     <p>Nossa visão é motivar as pessoas a aprender e aprimorar seu conhecimento técnico.</p>
                 </div>
             </div>
             <div className='card-institucional' onMouseEnter={() => handleImageChange(setCardThreeImage, cardThreeImg2)} onMouseLeave={() => handleImageChange(setCardThreeImage, cardThreeImg1)}>
                 <div className='card-content'>
-                    <img className='mission-img' src={cardThreeImage} />
+                    <img className='value-img' src={cardThreeImage} />
                     <h1>valores</h1>
                     <p>Temos como fundamentos confiança mútua e na entrega de um ensino de qualidade.</p>
                 </div>

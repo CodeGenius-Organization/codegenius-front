@@ -2,15 +2,13 @@
 .institucional-cards-sobre-nos{
     display: flex;
     justify-content: space-between;
-    /* border: solid 2px firebrick; */
     width: 100%;
     margin-top: 78px;
 }
 
 .card-institucional {
-    width: 32%;
-    height: 36vh;
-    /* border: #FFF 2px solid; */
+    width: 31.5%;
+    padding: 30px 0px;
     background-color: #7F56BC;
     border-radius: 20px;
     display: flex;
@@ -21,7 +19,7 @@
 }
 
 .card-content{
-    width: 18rem;
+    width: 16vw;
     height: 13rem;
     flex-shrink: 0;
     display: flex;
@@ -29,7 +27,7 @@
     justify-content: space-between;
 }
 
-.card-institucional .mission-img{
+.card-institucional .mission-img, .vision-img, .value-img{
     width: 63px;
     height: 78.775px;
 }
@@ -37,7 +35,7 @@
 .card-content h1{
     color: #FFF;
     font-family: 'K2D';
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 800;
     line-height: 40.005px;
@@ -47,12 +45,12 @@
 .card-content>p{
     color: #FFF;
     font-family: 'K2D';
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 400;
     line-height: 26px;
 }
 
-.card:hover{
+.card-institucional:hover{
     box-shadow: 0px 0px 20px 7px #452673;
 }

@@ -15,6 +15,7 @@ import ProfileT from '../pages/teacher/profile/Profile'
 import Social from '../pages/student/social/Social'
 import MyCourses from '../pages/student/my-courses/MyCourses'
 import Course from '../pages/student/course/Course'
+import CoursesAndMissionPainel from '../pages/student/components/list-misson-and-courses-student/CoursesAndMissionPainel'
 import NotFound from '../pages/not-found/NotFound'
 import CourseDetail from '../pages/student/course-detail/CourseDetail'
 
@@ -34,7 +35,7 @@ function AppRoutes() {
                         <Route path='settings' element={<Settings/>} />    
                         <Route path='profile' element={<ProfileS/>} />    
                         <Route path='social' element={<Social/>} />  
-                        <Route path='my-courses' element={<MyCourses/>} />  
+                        <Route path='my-courses' element={<MyCourses/>} />             
                     </Route> 
                     <Route path='/teacher' element={<HomeTeacher/>} >
                         <Route path='course' element={<p>Ola Professor</p>}/>

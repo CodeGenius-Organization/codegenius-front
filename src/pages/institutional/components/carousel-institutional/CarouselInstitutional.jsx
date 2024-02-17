@@ -89,7 +89,7 @@ function CarouselInstitutional() {
                 </div>
                 <button className='institucional-cadastre-se'>Cadastre-se</button>
             </div>
-            <div className="reset-modal-pos">  
+            <div className="institucional-reset-modal-pos">  
             </div>
         </>
     );
