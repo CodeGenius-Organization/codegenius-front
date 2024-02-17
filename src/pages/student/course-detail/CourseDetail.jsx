@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MdKeyboardArrowRight } from 'react-icons/md'
-import { useLocation } from "react-router-dom"; 
+import { useLocation, useNavigate } from "react-router-dom"; 
 
 import api from '../../../Api'
 import "./CourseDetail.css"
@@ -9,58 +9,43 @@ import ModuleList from "./components/module-list/ModuleList"
 import Cover from "./components/cover/Cover";
 import TopBar from "./components/top-bar/TopBar";
 
-function CourseDetail({ courseId, handleUnselectCourse }) {
+function CourseDetail() {
     const arrowStyle = { color: "#FFF", width: "24px", height: "24px" }
   
     const location = useLocation()
+    const navigate = useNavigate()
+
     const [course, setCourse] = useState({});
+
     const [currentTab, setCurrentTab] = useState('Introdução');
     const [firstLesson, setFirstLesson] = useState({});
     const [currentContent, setCurrentContent] = useState();
     const [currentLesson, setCurrentLesson] = useState({});
 
 
-    const getCourseDetails = async () => {
-
-        console.log(location.state.id)
-        try {
-            const response = await
-                api.get(`course/courses/${location.state.id}`,
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Authorization": `Bearer ${sessionStorage.getItem("authToken")}`
-                        }
-                    });
-            if (response.status === 200) {
-                console.log(response.data)
-                setCourse(response.data);
+    function getCourseDetails(){
+        api.get(`course/courses/${location.state.id}`,
+        {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${sessionStorage.getItem("authToken")}`
             }
-
-        } catch (error) {
-            console.log(error);
-            throw new Error("Ocorreu um erro interno");
-        }
+        })
+        .then((response) => {
+            if (response.status === 200) {
+                setCourse(response.data);
+            }})
+        .catch((error) => {
+            console.log(error)
+        });
     }
 
     useEffect(() => {
         getCourseDetails();
-    }, [courseId, firstLesson, currentLesson])
+    }, [])
 
 
-    useEffect(() => {
-        if (Object.keys(course).length === 0) {
-            setCurrentContent('<p>Carregando...</p>');
-        } else {
-            setCurrentContent(
-                <Cover
-                   
-                    lessonTitle={course.title}
-                    lessonContent={course.contentDescription}
-                />
-            );
-        }
-    }, [course])
+
 
     // useEffect(() => {
     //     handleShowContent('Introdução');
@@ -70,14 +55,10 @@ function CourseDetail({ courseId, handleUnselectCourse }) {
         setCurrentTab(tabName);
     }
 
-    // handle events
-    const handleBreadcrumbClick = () => {
-        handleUnselectCourse(null);
-    }
-
-    const handleLessonSelection = (lesson) => {
-        setCurrentLesson(lesson);
-        setFirstLesson(lesson.lessonContent);
+    const handleLessonSelection = (course) => {
+        setCourse(course)
+        // setCurrentLesson(lesson);
+        // setFirstLesson(lesson.lessonContent);
     }
 
     // function handleShowContent(selectedTab) {
@@ -122,29 +103,29 @@ function CourseDetail({ courseId, handleUnselectCourse }) {
 
     return (
         <>
-            {/* <div className="container}>
-                <div className="left_section}>
-
-                </div> */}
-            <div className="main_section">
+            <div className="main-section">
                 {/* TODO: componentizar o breadcrumb */}
                 <div className="breadcrumb">
-                    <span className="breadcrumb_element" onClick={handleBreadcrumbClick}>
+                    <span className="breadcrumb_element" onClick={ () => navigate("/student/course")}>
                         Cursos
                     </span>
                     <MdKeyboardArrowRight style={arrowStyle} />
-                    <span className="breadcrumb_element now">
+                    <span className="breadcrumb_element now" onClick={() => window.location.reload()}>
                         {course.title}
                     </span>
                 </div>
-                <div className="content">
-                    <ModuleList courseId={course.id} onLessonClick={handleLessonSelection} />
+                <div className="course-detail-content">
+                    <ModuleList modules={course.modules} onLessonClick={handleLessonSelection} />
                     <div className="learn_section">
                         {currentLesson.id &&
                             <TopBar currentTab={currentTab} />
                         }
                         {course &&
-                            currentContent
+                            <Cover
+                            title={course.title}
+                            courseDescription={course.courseDescription}
+                            contentDescription={course.contentDescription}
+                            />
                         }
                     </div>
                 </div>

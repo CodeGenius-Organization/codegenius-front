@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import './Filter.css'
 import { IoSearchOutline } from "react-icons/io5";
 
-function Filters({ onChangeFilter }) {
+function Filters({currentCategory, onChangeFilter }) {
+
+    useEffect(() => {
+        const filter = document.getElementById("filterSelected")
+        filter.value = "none"
+    },[currentCategory])
 
     return (
         <>
@@ -18,7 +23,7 @@ function Filters({ onChangeFilter }) {
                 </div>
                 <div className="filter_section">
                     <span>Filtrar por:</span>
-                    <select className="select-filter" onChange={(e) => {    
+                    <select id="filterSelected" className="select-filter" onChange={(e) => {    
                         onChangeFilter(e.target.value)
                     }}>
                         <option className="item-filter" value="none">Nenhum</option>

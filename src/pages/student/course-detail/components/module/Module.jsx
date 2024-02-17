@@ -1,14 +1,14 @@
 import React from "react";
-import style from './Module.module.css'
+import './Module.css'
 import Lesson from "../lesson/Lesson";
 
 function Module({ module, onLessonClick }) {
     const { moduleName, lessons, moduleOrder } = module;
     
     return (
-        <div className={ style.module }>
+        <div className="module">
             <span>{ moduleName }</span>
-            <div className={ style.lessons }>
+            <div className="lessons">
                 { lessons.map((lesson) => (
                     <Lesson 
                     lesson={ lesson }

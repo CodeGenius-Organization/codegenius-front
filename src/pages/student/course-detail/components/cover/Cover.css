@@ -1,7 +1,6 @@
 .learn_section {
     /* border: solid 2px red; */
     overflow-y: scroll;
-    height: 850px;
     background-color: #121526;
     
     /* margin-left: 25px; */
@@ -9,7 +8,7 @@
     display: flex;
     flex-direction: column;
 
-    width: 902px;
+    width: 100%;
 
     gap: 32px;
 }
@@ -38,13 +37,14 @@
     width: 902px;
 } */
 
-.lesson_header {
+.lesson-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 16px;
 }
 
-.lesson_header > span {
+.lesson-header > span {
     font-family: 'Titillium Web';
     font-size: 48px;
     font-weight: 600;
@@ -70,10 +70,13 @@
     font-family: 'Raleway';
     font-size: 16px;
     font-weight: normal;
-    
 }
 
-.lesson_body {
+.cover-description {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
     font-family: 'Titillium Web';
     font-size: 24px;
     font-weight: normal;

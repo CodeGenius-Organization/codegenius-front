@@ -10,21 +10,22 @@ import CardLesson from '../components/card-lesson/CardLesson'
 // import CoursesJson from './CoursesJson'
 
 function Course() {
+
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedFilter, setSelectedFilter] = useState('none');
-    const [coursesCache, setCoursesCache] = useState({});
     const [courses, setCourses] = useState([])
-    const [selectedCardId, setSelectedCardId] = useState(null);
+    
   
 
     const handleCategory = (category) => {
         setSelectedCategory(category)
-        // console.log(category)
+        setCourses([])
     }
 
     const handleFilter = (filter) => {
         setSelectedFilter(filter)
-        // console.log(filter)
+        setCourses([])
+        console.log(filter)
     }
 
 
@@ -46,7 +47,7 @@ function Course() {
     }
 
     function getByCategoryOrderSize(){
-        setCourses([])
+        console.log(`course/courses/category/${selectedCategory}/${selectedFilter}/${courses.length}`)
         api.get(`course/courses/category/${selectedCategory}/${selectedFilter}/${courses.length}`,
         {
             headers: {
@@ -57,6 +58,7 @@ function Course() {
         .then((response) => {
             if (response.status === 200) {
                 setCourses(response.data)
+                // console.log(response.data)
             }})
         .catch((error) => {
             console.log(error)
@@ -80,7 +82,7 @@ function Course() {
                     onChangeCategory={handleCategory}
                     currentCategory={selectedCategory}
                 />
-                <Filters onChangeFilter={handleFilter} />
+                <Filters currentCategory={selectedCategory} onChangeFilter={handleFilter} />
                 {courses.length === 0 ? (
                     <div className="empty-courses">
                         <span className="not-found-courses">Cursos não encontrados!</span>

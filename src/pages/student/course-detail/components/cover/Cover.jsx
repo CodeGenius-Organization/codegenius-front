@@ -1,25 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Cover.css"
+import { MdOutlineFavorite, MdOutlineFavoriteBorder} from "react-icons/md";
 
-import { CiHeart } from "react-icons/ci";
+function Cover({ title, contentDescription, courseDescription }) {
 
-function CourseContent({ lessonTitle, lessonContent }) {
-    const heartStyle = { color: "#FFF", width: "24px", height: "24px" }
-    
+    const [favorite, setFavorite] = useState(false)
+
     return (
         <>
             <div className="learn_section">
                 <span>O que aprenderá:</span>
                 <div className="lesson_content">
-                    <div className="lesson_header">
-                        <span>{ lessonTitle }</span>
+                    <div className="lesson-header">
+                        <span>{ title }</span>
                         <div className="like_button">
-                            <CiHeart style={heartStyle} />
+                        {!favorite ?
+                            <MdOutlineFavoriteBorder className='favorite' onClick={() => setFavorite(!favorite)} /> :
+                            <MdOutlineFavorite className='favorite-fill' onClick={() => setFavorite(!favorite)} />
+                        }
                             <span>Curtir</span>
                         </div>
                     </div>
-                    <div className="lesson_body">
-                        <span>{ lessonContent }</span>
+                    <div className="cover-description">
+                        <span>{ contentDescription }</span>
+                        <span>{ courseDescription }</span>
                     </div>
                 </div>
             </div>
@@ -27,4 +31,4 @@ function CourseContent({ lessonTitle, lessonContent }) {
     )
 }
 
-export default CourseContent
+export default Cover

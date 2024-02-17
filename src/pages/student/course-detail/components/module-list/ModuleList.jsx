@@ -1,50 +1,16 @@
-import React, { useEffect, useState } from "react";
-import style from './ModuleList.module.css'
-import api from "../../../../../Api";
+import React from "react";
+
+import  './ModuleList.css'
 import Module from "../module/Module";
 
+function ModuleList({ modules, onLessonClick }) {
 
-function ModuleList({ courseId, onLessonClick }) {
-  // useStates
-  const [ modules, setModules] = useState([]);
-  
-  
-  // api
-  const getModules = async () => {
-    try {
-      const response = await
-        api.get(`course/modules/${courseId}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization" : `Bearer ${sessionStorage.getItem("authToken")}`
-          }
-        });
-
-        if (response.status === 200) {
-          console.log("Sucesso ao pegar os módulos do curso " + courseId);
-          setModules(response.data);
-          console.log(response.data)
-        }
-    } catch (error) {
-      console.log(error);
-      throw new Error("Ocorreu um erro interno");
-    }
-  }
-
-  
-  // useEffect
-  useEffect(() => {
-    courseId && getModules(courseId);
-  }, [courseId])
-  
-
-  // component render
     return (
         <>
-            <div className={ style.modules_container }>
-                <span className={ style.title }>Lista de módulos:</span>
-                <div className={ style.modules_list }>
+            <div className="module-list-container">
+            <span className="title">Lista de módulos:</span>
+            <div className="modules_container">
+                <div className="modules_list">
                     { modules && modules.map((module) => (
                         <Module 
                         module={ module } 
@@ -52,6 +18,7 @@ function ModuleList({ courseId, onLessonClick }) {
                         onLessonClick={ onLessonClick }/>
                     ))}
                 </div>           
+            </div>
             </div>
         </>
     )

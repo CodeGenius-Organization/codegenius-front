@@ -1,11 +1,10 @@
 import React from "react";
-import {MdDone} from "react-icons/md";
-import style from './Lesson.module.css'
+// import {MdDone} from "react-icons/md";
+import './Lesson.css'
 
 function Lesson({ lesson, moduleOrder, onLessonClick }) {
     const { lessonOrder, contentDescription, lessonTitle } = lesson;
     // pra fazer aparecer e desaparecer o check de concluído, mexer aqui futuramente, adicionando alguma propriedade tipo hidden sla
-    const doneStyle = {color: "green", width: "30px", height: "27px", alignSelf: "center"}
 
 
     // handle events
@@ -17,17 +16,17 @@ function Lesson({ lesson, moduleOrder, onLessonClick }) {
     // component render
     return (
         <>
-            <div className={style.lesson_card} onClick={() => handleLessonSelection(lesson) }>
-                <div className={style.lesson_order}>
+            <div className="lesson_card" onClick={() => handleLessonSelection(lesson) }>
+                <div className="lesson_order">
                     <span>{moduleOrder} - {lessonOrder}</span>
                 </div>
-                <div className={style.lesson_details}>
-                    <div className={style.details_header}>
-                        <span className={style.lesson_title}>{ lessonTitle }</span> 
-                        <MdDone style={doneStyle}/>
+                <div className="lesson_details">
+                    <div className="details_header">
+                        <span className="lesson_title">{ lessonTitle }</span> 
+                        {/* <MdDone style={doneStyle}/> */}
                     </div>
-                    <div className={style.details_body}>
-                        <span className={style.content}>
+                    <div className="details_body">
+                        <span className="content">
                             {contentDescription}
                         </span>
                     </div>

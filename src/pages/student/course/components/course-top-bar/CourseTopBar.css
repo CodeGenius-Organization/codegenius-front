@@ -13,7 +13,7 @@
     color: #f2f2f2;
 }
 
-.item {
+.item-courses {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -22,14 +22,14 @@
     position: relative;
 }
 
-.container-course > .item > span {
+.container-course > .item-courses > span {
     color: #FFF;
     font-family: 'Titillium Web';
     font-size: 20px;
     font-weight: normal;
 }
 
-.item::before {
+.item-courses::before {
     content: "";
     position: absolute;
     border-radius: 2px;
@@ -40,7 +40,7 @@
     height: 4px;
 }
 
-.item:hover::before{
+.item-courses:hover::before{
     content: "";
     position: absolute;
     border-radius: 2px;

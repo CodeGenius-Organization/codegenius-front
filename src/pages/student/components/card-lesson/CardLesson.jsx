@@ -27,7 +27,7 @@ function CardLesson({ course }) {
                 </div>
 
                 <div className="containerCourse">
-                    <div className="card_lesson"onClick={() => navigate(`/student/course/${course.title.replaceAll(" ","-").toLowerCase()}`,{id: course.id})}>
+                    <div className="card_lesson"onClick={() => navigate(`/student/course/${course.title.replaceAll(" ","-").toLowerCase()}`,{state: { id: course.id}})}>
                         <div className="info_card">
                             <span className="card_title">{course.title}</span>
                             <div className="languages">

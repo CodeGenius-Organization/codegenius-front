@@ -4,7 +4,7 @@ import { MdOutlineLocalLibrary } from "react-icons/md";
 import { PiBarbell } from "react-icons/pi";
 import { CgNotes } from "react-icons/cg";
 
-import style from './TopBar.module.css'
+import'./TopBar.css'
 
 function TopBar({ changeTab, currentTab }) {
     const icon1Style = {color: "#FFF", width: "24px", height: "24px"}
@@ -15,16 +15,16 @@ function TopBar({ changeTab, currentTab }) {
     
     return (
         <>
-            <div className={ style.container }>
-                <div className={ `${style.item} ${currentTab === "Introdução" ? style.active : ""}` } onClick={() => changeTab("Introdução")}>
+            <div className="container">
+                <div className={ `item ${currentTab === "Introdução" ? "active-lesson" : ""}` } onClick={() => changeTab("Introdução")}>
                     <MdOutlineLocalLibrary style={ icon1Style } />
                     <span>Introdução</span>
                 </div>
-                <div className={ `${style.item} ${currentTab === "Exercícios" ? style.active : ""}` } onClick={() => changeTab("Exercícios")}>
+                <div className={ `item ${currentTab === "Exercícios" ? "active-lesson" : ""}` } onClick={() => changeTab("Exercícios")}>
                     <PiBarbell style={ icon2Style } />
                     <span>Exercícios</span>
                 </div>
-                <div className={ `${style.item} ${currentTab === "Prova" ? style.active : ""}` } onClick={() => changeTab("Prova")}>
+                <div className={ `item ${currentTab === "Prova" ? "active-lesson" : ""}` } onClick={() => changeTab("Prova")}>
                     <CgNotes style={ icon3Style } />
                     <span>Prova</span>
                 </div>

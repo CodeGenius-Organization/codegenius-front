@@ -60,7 +60,7 @@
     font-weight: normal;
 }
 
-.active::before {
+.active-lesson::before {
     content: "";
 
     background: linear-gradient(90deg, rgba(127, 86, 188, 1), rgba(240, 112, 255, 1));
