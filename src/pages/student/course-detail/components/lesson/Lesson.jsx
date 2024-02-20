@@ -6,14 +6,10 @@ function Lesson({ lesson, moduleOrder, onLessonClick }) {
     const { lessonOrder, contentDescription, lessonTitle } = lesson;
     // pra fazer aparecer e desaparecer o check de concluído, mexer aqui futuramente, adicionando alguma propriedade tipo hidden sla
 
-
-    // handle events
     const handleLessonSelection = (lesson) => {
         onLessonClick(lesson);
     }
 
-
-    // component render
     return (
         <>
             <div className="lesson_card" onClick={() => handleLessonSelection(lesson) }>

@@ -8,6 +8,8 @@ import "./CourseDetail.css"
 import ModuleList from "./components/module-list/ModuleList"
 import Cover from "./components/cover/Cover";
 import TopBar from "./components/top-bar/TopBar";
+import CourseContent from "./components/course-content/CourseContent";
+import Exercises from "./components/exercises/Exercises";
 
 function CourseDetail() {
     const arrowStyle = { color: "#FFF", width: "24px", height: "24px" }
@@ -44,9 +46,6 @@ function CourseDetail() {
         getCourseDetails();
     }, [])
 
-
-
-
     // useEffect(() => {
     //     handleShowContent('Introdução');
     // }, [firstLesson, currentLesson])
@@ -55,51 +54,43 @@ function CourseDetail() {
         setCurrentTab(tabName);
     }
 
-    const handleLessonSelection = (course) => {
-        setCourse(course)
-        // setCurrentLesson(lesson);
+    const handleLessonSelection = (lesson) => {
+        setCurrentLesson(lesson);
         // setFirstLesson(lesson.lessonContent);
     }
 
-    // function handleShowContent(selectedTab) {
-    //     switch (selectedTab) {
-    //         case 'Introdução':
-    //             setCurrentContent(<Cover
-    //                 lessonTitle={firstLesson && firstLesson.title}
-    //                 lessonContent={firstLesson && firstLesson.content}
-    //             />);
-    //             setCurrentTab('Introdução');
-    //             break;
-    //         case 'Exercícios':
-    //             setCurrentContent(<Exercises />)
-    //             setCurrentTab('Exercícios');
-    //             break;
-    //         case 'Prova':
-    //             setCurrentContent(<FriendCard />)
-    //             setCurrentTab('Prova');
-    //             break;
-    //         default:
-    //             setCurrentContent(<Cover
-                    
-    //                 lessonTitle={course.title}
-    //                 lessonContent={course.contentDescription}
-    //             />)
-    //             break;
-    //     }
-    // }
+    function handleShowContent(selectedTab) {
+        switch (selectedTab) {
+            case 'Introdução':
+                setCurrentContent(<Cover
+                    lessonTitle={firstLesson && firstLesson.title}
+                    lessonContent={firstLesson && firstLesson.content}
+                />);
+                setCurrentTab('Introdução');
+                break;
+            case 'Exercícios':
+                setCurrentContent(<Exercises />)
+                setCurrentTab('Exercícios');
+                break;
+            case 'Prova':
+                break;
+            default:
+                setCurrentContent(<Cover
+                    lessonTitle={course.title}
+                    lessonContent={course.contentDescription}
+                />)
+                break;
+        }
+    }
 
-    // let selectedTab;
-    // if (currentTab === "Introdução") {
-    //     selectedTab = <CourseContent
-    //         
-    //         lessonTitle={firstLesson.title}
-    //         lessonContent={firstLesson.content}
-    //     />
-    // } else if (currentTab === "Exercícios") {
-    //     selectedTab = <Exercises />
-    // } else if (currentTab === "Prova") {
-    //     selectedTab = <FriendCard />
-    // }
+    let selectedTab;
+    if (currentTab === "Introdução") {
+        selectedTab = <CourseContent />
+    } else if (currentTab === "Exercícios") {
+        selectedTab = <Exercises />
+    } else if (currentTab === "Prova") {
+    
+    }
 
     return (
         <>
@@ -118,19 +109,19 @@ function CourseDetail() {
                     <ModuleList modules={course.modules} onLessonClick={handleLessonSelection} />
                     <div className="learn_section">
                         {currentLesson.id &&
-                            <TopBar currentTab={currentTab} />
+                            <TopBar currentTab={currentTab} changeTab={changeTab}/>
                         }
-                        {course &&
+                        {!currentLesson.id ? 
                             <Cover
                             title={course.title}
                             courseDescription={course.courseDescription}
                             contentDescription={course.contentDescription}
-                            />
+                            /> :
+                            selectedTab
                         }
                     </div>
                 </div>
             </div>
-            {/* </div> */}
         </>
     )
 }
