@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   border-right: #7D7D7D solid 2px;
+  height: 100%;
 }
 
 .module-list-container>span{
@@ -10,6 +11,7 @@
 }
 
 .modules_container {
+    /* border: 1px solid red; */
     background-color: #121526;
 
     display: flex;
@@ -19,7 +21,7 @@
     
     width: 511px;
     overflow-y: scroll;
-    height: 79vh;
+    height: 100%;
     /* padding-right: 32px; */
 }
 
@@ -38,6 +40,7 @@
 
 .modules_list {
     /* border: solid 2px pink; */
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 32px;
