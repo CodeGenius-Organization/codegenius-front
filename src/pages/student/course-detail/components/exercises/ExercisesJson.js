@@ -11,14 +11,14 @@ export default function questions(){
                 value: 1,
                 resposta: "Um livro de receitas para computadores.",
                 correta: false,
-                explicacao: "explicacao_2e129f3930b3",
+                explicacao: "Aqui vem a explicação",
                 fkQuestao: "781299a2-6eb6-410c-b622-985763632075"
             },
             {
                 value: 2,
                 resposta: "Um conjunto de regras para criar sopa.",
                 correta: false,
-                explicacao: "explicacao_2e129f3930b3",
+                explicacao: "Aqui vem a explicação",
                 fkQuestao: "781299a2-6eb6-410c-b622-985763632075"
             },
             {
@@ -32,7 +32,7 @@ export default function questions(){
                 value: 4,
                 resposta: "Um guia para aprender línguas estrangeiras.",
                 correta: false,
-                explicacao: "explicacao_2e129f3930b3",
+                explicacao: "Aqui vem a explicação",
                 fkQuestao: "781299a2-6eb6-410c-b622-985763632075"
             },
 

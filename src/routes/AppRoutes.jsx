@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 //CSS reponsável no App.css
 
-import Login from '../pages/login/Login'
 import Institutional from '../pages/institutional/Institutional'
 import HomeStudent from '../pages/student/HomeStudent'
 import HomeTeacher from '../pages/teacher/HomeTeacher'
@@ -15,7 +14,6 @@ import ProfileT from '../pages/teacher/profile/Profile'
 import Social from '../pages/student/social/Social'
 import MyCourses from '../pages/student/my-courses/MyCourses'
 import Course from '../pages/student/course/Course'
-import CoursesAndMissionPainel from '../pages/student/components/list-misson-and-courses-student/CoursesAndMissionPainel'
 import NotFound from '../pages/not-found/NotFound'
 import CourseDetail from '../pages/student/course-detail/CourseDetail'
 
@@ -26,7 +24,6 @@ function AppRoutes() {
             <BrowserRouter>  
                 <Routes>
                     <Route exact path='/'  element={<Institutional/>} />
-                    <Route path='/login' element={<Login/>} />
                     <Route path='*' element={<NotFound/>}/>
                     <Route path='/student' element={<HomeStudent/>} >                        
                         <Route path='course' element={<Course/>}/>
@@ -48,5 +45,5 @@ function AppRoutes() {
         </>
     )
 }
-
+    
 export default AppRoutes

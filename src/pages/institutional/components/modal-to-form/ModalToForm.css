@@ -1,10 +1,46 @@
+
+.modal-container{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    visibility: hidden;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    background-color: #121526b6;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+
+.off{
+    visibility: visible;
+    opacity: 1;
+}
+
+
 .modal-content{
     color: #fff;
+    border-radius: 20px;
     background: #121526;
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    height: 100vh;
+    width: 85%;
+    height: 95%;
+    overflow: hidden;
+    transform: translateY(500px);
+    transition: 0.5s ease;
+
+}
+
+.block{
+    transform: translateY(0px);
+    
+}
+
+.modal-content:hover{
+    scale: 102%;
 }
 
 .login-form{
@@ -47,24 +83,26 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url('./assets/cat-login.png');
+    background-image: url('../../assets/cat-login.png');
     border-radius: 0px 20px 20px 0px;
 }
 
 .teste{
-    background-image: url('./assets/cat-register.png');   
+    background-image: url('../../assets/cat-register.png');   
 }
 
 .linear-gradient{
     background: linear-gradient(90deg, #121526 0%, rgba(18, 21, 38, 0.00) 46.13%);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-end;
     width: 100%;
     height: 100%;
 }
 
 .linear-gradient>p{
+    align-self: center;
     font-family: 'Oxanium', sans-serif;
     font-size: 36px;
     margin-bottom: 40px;

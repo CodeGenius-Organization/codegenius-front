@@ -6,7 +6,7 @@ import './FormLogin.css'
 
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
-function FormLogin({ changeForm, modalVisible }) {
+function FormLogin({ toggleModal, changeForm, modalVisible }) {
 
   const navigate = useNavigate();
 
@@ -84,6 +84,7 @@ function FormLogin({ changeForm, modalVisible }) {
           } else {
             navigate("/student/course")
           }
+          toggleModal();
         } else {
           throw new Error("Ocorreu um erro interno!");
         }

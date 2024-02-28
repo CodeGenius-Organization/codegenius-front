@@ -107,7 +107,7 @@ function CourseDetail() {
                 </div>
                 <div className="course-detail-content">
                     <ModuleList modules={course.modules} onLessonClick={handleLessonSelection} />
-                    <div className="learn_section">
+                    <div className="course-detail-section">
                         {currentLesson.id &&
                             <TopBar currentTab={currentTab} changeTab={changeTab}/>
                         }

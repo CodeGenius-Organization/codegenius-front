@@ -8,12 +8,12 @@ function Cover({ title, contentDescription, courseDescription }) {
 
     return (
         <>
-            <div className="learn_section">
+            <div className="cover-section">
                 <span>O que aprenderá:</span>
-                <div className="lesson_content">
-                    <div className="lesson-header">
+                <div className="cover-lesson-content">
+                    <div className="cover-lesson-header">
                         <span>{ title }</span>
-                        <div className="like_button">
+                        <div className="cover-like-button">
                         {!favorite ?
                             <MdOutlineFavoriteBorder className='favorite' onClick={() => setFavorite(!favorite)} /> :
                             <MdOutlineFavorite className='favorite-fill' onClick={() => setFavorite(!favorite)} />

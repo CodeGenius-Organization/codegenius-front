@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Institutional.css';
 
+import ModalToForm from './components/modal-to-form/ModalToForm';
 import CardInstitucional from './components/card-institutional/CardInstitutional'
 import CardOurTeam from './components/card-our-team/CardOurTeam'
 import Carousel from './components/carousel-institutional/CarouselInstitutional'
@@ -22,11 +23,49 @@ import scrollToHelper from '../../shared/helpers/scrollHelper';
 
 function Institutional() {
 
-    useEffect(() => { }, []);
+    const [modalVisible, setModalVisible] = useState(false);
+
+    useEffect(() => {
+        const body = document.getElementsByTagName("body")[0];
+        modalVisible ? (body.style.overflow = "hidden") : (body.style.overflow = "auto");
+    }, [modalVisible]);
+
+    function handleVisibleLogin() {
+        setModalVisible(!modalVisible);
+    }
+
+    function handleVisibleRegister() {
+        setModalVisible(!modalVisible);
+        document.querySelector(".toggle-cad-reg").click()
+    }
+
+    // useEffect(() => {
+
+    //     if(sessionStorage.getItem('authToken') !== null){
+    //       try {
+    //         const tokenT = sessionStorage.getItem('authToken')
+    //         const emailToken = parseJwt(tokenT).sub;
+    //         // console.log(emailToken)
+    //         if(emailToken.split("@")[1] === "mindtech.code"){
+    //             navigate("/teacher/course");
+    //           } else {
+    //             navigate("/student/course")
+    //           }
+            
+    //       } catch (error) {
+    //         console.log(error)  
+    //       }
+          
+    //     }
+      
+    //   }, [])
+
+ 
 
     return (
         <>
-            <NavBar/>
+            <NavBar onLoginModal={handleVisibleLogin}   
+            />
             <div className='institucional-background'>
                 <div className='institucional-gradient'>
                     <div className="institucional-side left">
@@ -45,7 +84,7 @@ function Institutional() {
                                 <h1>Explore as tendências tecnológicas atuais!</h1>
                                 <p>Expanda seus conhecimentos sobre as tecnologias e ferramentas que estão bombando em TI de maneira simples e prática.</p>
                                 <div className='institucional-bt-home'>
-                                    <button className='institucional-cadastre-se'>Cadastre-se</button>
+                                    <button className='institucional-cadastre-se' onClick={()=> handleVisibleRegister()}>Cadastre-se</button>
                                     <button className='institucional-saiba-mais' data-scroll="#sobre_nos" onClick={scrollToHelper}>Saiba mais</button>
                                 </div>
                             </div>
@@ -133,6 +172,11 @@ function Institutional() {
                         </div>
                     </div>
             </div>
+
+            <ModalToForm
+                toggleModal={handleVisibleLogin}
+                visible={modalVisible}
+            />
         </>
     )
 }

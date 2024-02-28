@@ -9,7 +9,7 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 function FormRegister({ changeForm, modalVisible }) {
 
   useEffect(() => {
-
+    
     if(modalVisible === false){
     document.querySelector("#inpName").value = ''
     document.querySelector("#inpSurname").value = ''

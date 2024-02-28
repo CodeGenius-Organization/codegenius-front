@@ -1,57 +1,33 @@
-.learn_section {
-    /* border: solid 2px red; */
-    overflow-y: scroll;
+.cover-section {
     background-color: #121526;
-    
-    /* margin-left: 25px; */
-    
     display: flex;
     flex-direction: column;
-
     width: 100%;
-
     gap: 32px;
 }
 
-.learn_section::-webkit-scrollbar {
-    width: 10px;               /* width of the entire scrollbar */
-  }
-  
-.learn_section::-webkit-scrollbar-track {
-    background: #121526;       /* color of the tracking area */
-  }
-  
-.learn_section::-webkit-scrollbar-thumb {
-    background-color: rgba(127, 86, 188, 1);    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb /  / creates padding around scroll thumb */
-  }
-
-.learn_section > span {
+.cover-section > span {
     font-family: 'Raleway';
     font-size: 32px;
     font-weight: 600;
     color: #FFF;
 }
 
-/* .learn_section > img {
-    width: 902px;
-} */
-
-.lesson-header {
+.cover-lesson-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
 }
 
-.lesson-header > span {
+.cover-lesson-header > span {
     font-family: 'Titillium Web';
     font-size: 48px;
     font-weight: 600;
     color: #FFF;
 }
 
-.like_button {
+.cover-like-button {
     border: solid 1px #FFF;
     border-radius: 100px;
 
@@ -66,7 +42,7 @@
     padding: 0px 15px;
 }
 
-.like_button > span {
+.cover-like-button > span {
     font-family: 'Raleway';
     font-size: 16px;
     font-weight: normal;
