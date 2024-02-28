@@ -1,0 +1,58 @@
+.test-result-container {
+    /* border: solid 2px blue; */
+
+    /* height: 80%; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 16px;
+
+    margin: 10% 0;
+}
+
+.test-result-container > span {
+    font-family: 'Titillium Web';
+    color: white;
+    align-self: self-start;
+    font-size: 24px;
+}
+
+.test-result-container .test-result-score {
+    /* border: solid 1px rebeccapurple; */
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.test-result-container .test-result-message {
+    border: solid 1px red;
+    display: flex;
+    padding: 30px 50px;
+}
+
+.test-result-message > span {
+    font-family: 'Titillium Web';
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.test-result-buttons {
+    display: flex;
+    margin-top: 20px;
+    gap: 32px;
+}
+
+.test-result-buttons button {
+    width: 211px;
+    height: 47px;
+
+    border-radius: 100px;
+    border: none;
+
+    color: white;
+    background-color: #4476E0;
+    
+    font-family: 'Titillium Web';
+    font-size: 24px;
+}

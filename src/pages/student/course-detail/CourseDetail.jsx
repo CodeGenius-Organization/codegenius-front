@@ -10,6 +10,7 @@ import Cover from "./components/cover/Cover";
 import TopBar from "./components/top-bar/TopBar";
 import CourseContent from "./components/course-content/CourseContent";
 import Exercises from "./components/exercises/Exercises";
+import TestResult from "./components/test-result/TestResult";
 
 function CourseDetail() {
     const arrowStyle = { color: "#FFF", width: "24px", height: "24px" }
@@ -89,7 +90,7 @@ function CourseDetail() {
     } else if (currentTab === "Exercícios") {
         selectedTab = <Exercises />
     } else if (currentTab === "Prova") {
-    
+        selectedTab = <TestResult />
     }
 
     return (
