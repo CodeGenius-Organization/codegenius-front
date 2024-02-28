@@ -17,6 +17,7 @@ import Course from '../pages/student/course/Course'
 import NotFound from '../pages/not-found/NotFound'
 import CourseDetail from '../pages/student/course-detail/CourseDetail'
 
+
 function AppRoutes() {
  
     return (

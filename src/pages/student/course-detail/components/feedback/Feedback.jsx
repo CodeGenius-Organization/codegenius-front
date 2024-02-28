@@ -3,23 +3,23 @@ import "./Feedback.css"
 import { MdOutlineClose } from "react-icons/md";
 import {MdOutlineStarOutline, MdOutlineStarPurple500, MdOutlineStarHalf } from "react-icons/md";
 import trophy from "./assets/feedback-trophy.png"
-//import medal from "./assets/feedback-medal.png"
+import medal from "./assets/feedback-medal.png"
 
-function Feedback() {
+function Feedback({course}) {
   return (
     <>
     <span>
         <div className='feedback-container'>
             <div className='feedback-header'>
-                <span>FEEDBACK DO CURSO</span>
+                <span>FEEDBACK DO {course ? "CURSO" : "MÓDULO"}</span>
                 <MdOutlineClose className='feedback-close'/>
             </div>
             <div className='feedback-body'>
                 <div className='feedback-content'>
-                    <span className='feedback-title'>UHUU! Você concluiu este curso!</span>
+                    <span className='feedback-title'>{course ? "UHUU! Você concluiu este curso!" : "Parabéns por concluir o módulo!"}</span>
                     <div className='feedback-content-description'>
-                    <img className='feedback-image' src={trophy} alt="" />
-                    <span className='feedback-description'>Nos dê sua opinião sobre o curso:</span>
+                    <img className='feedback-image' src={course ? trophy : medal} alt="" />
+                    <span className='feedback-description'>{course ? "Nos dê sua opinião sobre o curso:" : "Nos dê sua opinião sobre o conteúdo deste módulo que acabou de concluir:"}</span>
                     <div className='feedback-stars'>
                         <MdOutlineStarOutline className='feedback-icon-star'/>
                         <MdOutlineStarOutline className='feedback-icon-star'/>
