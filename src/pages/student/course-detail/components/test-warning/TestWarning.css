@@ -1,0 +1,49 @@
+.test-warning-container {
+    margin: auto 0;
+    
+    /* border: solid 1px red; */
+
+    display: flex;
+    flex-direction: column;
+
+    color: white;
+    font-family: 'Titillium Web';
+
+    gap: 16px;
+}
+
+.test-warning-hearts {
+    font-size: 32px;
+}
+
+.test-warning-warn {
+    align-self: center;
+    font-weight: bold;
+    color: #FCFF5C;
+    font-size: 32px;
+
+    margin-bottom: 8px;
+}
+
+.test-warning-text {
+    margin-bottom: 64px;
+
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.test-warning-container > button {
+    align-self: center;
+    
+    width: 121px;
+    height: 47px;
+
+    border-radius: 100px;
+    border: none;
+
+    color: white;
+    background-color: #4476E0;
+    
+    font-family: 'Titillium Web';
+    font-size: 24px;
+}

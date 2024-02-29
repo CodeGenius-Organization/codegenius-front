@@ -11,6 +11,9 @@ import TopBar from "./components/top-bar/TopBar";
 import CourseContent from "./components/course-content/CourseContent";
 import Exercises from "./components/exercises/Exercises";
 import TestResult from "./components/test-result/TestResult";
+import TestWarning from "./components/test-warning/TestWarning";
+
+let hearts = 3 // TODO: get API para a quantidade de vidas
 
 function CourseDetail() {
     const arrowStyle = { color: "#FFF", width: "24px", height: "24px" }
@@ -25,6 +28,7 @@ function CourseDetail() {
     const [currentContent, setCurrentContent] = useState();
     const [currentLesson, setCurrentLesson] = useState({});
 
+    const [isTestStarted, setIsTestStarted] = useState();
 
     function getCourseDetails(){
         api.get(`course/courses/${location.state.id}`,
@@ -60,6 +64,19 @@ function CourseDetail() {
         // setFirstLesson(lesson.lessonContent);
     }
 
+    const handleStartTest = () => {
+        setIsTestStarted(true);
+    }
+
+    const handleTryAgain = () => {
+        hearts--;
+        setIsTestStarted(false)
+    }
+
+    const handleGoBackToCourse = () => {
+        changeTab('Introdução')
+    }
+    
     function handleShowContent(selectedTab) {
         switch (selectedTab) {
             case 'Introdução':
@@ -90,7 +107,7 @@ function CourseDetail() {
     } else if (currentTab === "Exercícios") {
         selectedTab = <Exercises />
     } else if (currentTab === "Prova") {
-        selectedTab = <TestResult />
+        selectedTab = isTestStarted ? <TestResult handleGoBackToCourse={handleGoBackToCourse} handleTryAgain={handleTryAgain}/> : <TestWarning hearts={hearts} handleStartTest={handleStartTest} />
     }
 
     return (
