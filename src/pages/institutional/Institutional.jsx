@@ -82,7 +82,7 @@ function Institutional() {
                             <div className='institucional-left-side'>
                                 <img className='institucional-codegenius-img' src={codegenius_img} />
                             </div>
-                            <Carousel />
+                            <Carousel onModal={handleVisibleRegister}/>
                         </div>
                         <div className='institucional-equipe' id='equipe'>
                             <h1 className='institucional-title-equipe'>Nossa Equipe</h1>

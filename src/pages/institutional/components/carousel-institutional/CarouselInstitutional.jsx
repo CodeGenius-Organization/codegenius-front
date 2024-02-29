@@ -55,7 +55,7 @@ function CarouselSteps({iterador, setIterador}) {
     )
 }
 
-function CarouselInstitutional() {
+function CarouselInstitutional({ onModal }) {
     const [iterador, setIterador] = useState(0);
 
     useEffect(() => {},[]);
@@ -87,7 +87,7 @@ function CarouselInstitutional() {
                     <h2>{textos[iterador].subtitulo}</h2>
                     <p>{textos[iterador].texto}</p>
                 </div>
-                <button className='institucional-cadastre-se'>Cadastre-se</button>
+                <button className='institucional-cadastre-se' onClick={() => onModal()}>Cadastre-se</button>
             </div>
             <div className="institucional-reset-modal-pos">  
             </div>
