@@ -39,29 +39,6 @@ function Institutional() {
         document.querySelector(".toggle-cad-reg").click()
     }
 
-    // useEffect(() => {
-
-    //     if(sessionStorage.getItem('authToken') !== null){
-    //       try {
-    //         const tokenT = sessionStorage.getItem('authToken')
-    //         const emailToken = parseJwt(tokenT).sub;
-    //         // console.log(emailToken)
-    //         if(emailToken.split("@")[1] === "mindtech.code"){
-    //             navigate("/teacher/course");
-    //           } else {
-    //             navigate("/student/course")
-    //           }
-            
-    //       } catch (error) {
-    //         console.log(error)  
-    //       }
-          
-    //     }
-      
-    //   }, [])
-
- 
-
     return (
         <>
             <NavBar onLoginModal={handleVisibleLogin}   
@@ -150,13 +127,13 @@ function Institutional() {
                 <div className="institucional-footer">
                         <div className="institucional-container-footer">
                             <div className="institucional-logo-mindtech">
-                                <h1>MindTech</h1>
+                                <h1 data-scroll="#home" onClick={scrollToHelper}>MindTech</h1>
                             </div>
                             <div className="institucional-menu">
-                                <li>HOME</li>
-                                <li>SOBRE NÓS</li>
-                                <li>CODEGENIUS</li>
-                                <li>EQUIPE</li>
+                                <li data-scroll="#home" onClick={scrollToHelper}>HOME</li>
+                                <li data-scroll="#sobre_nos" onClick={scrollToHelper}>SOBRE NÓS</li>
+                                <li data-scroll="#codegenius" onClick={scrollToHelper}>CODEGENIUS</li>
+                                <li data-scroll="#equipe" onClick={scrollToHelper}>EQUIPE</li>
                             </div>
                             <div className="institucional-redes-sociais">
                                 <div className="institucional-facebook">

@@ -2,13 +2,14 @@ import React from "react";
 import "./NavBar.css";
 import { FiLogIn, FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
-import scrollToHelper from "../../../../routes/AppRoutes";
+import scrollToHelper from "../../../../shared/helpers/scrollHelper";
+
 
 function NavBar( { onLoginModal }) {
   
   function handleMenuMobile() {
     const menu = document.getElementById("navbar-mobile");
-    menu.classList.toggle("institucional-activea");
+    menu.classList.toggle("institucional-active");
     const menuClose = document.getElementById("navbar-closeOut");
     menuClose.classList.toggle("institucional-active-close");
   }

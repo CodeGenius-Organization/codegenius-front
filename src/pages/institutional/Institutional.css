@@ -276,6 +276,7 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        cursor: pointer;
     }
 
     .institucional-footer .institucional-menu {
@@ -289,7 +290,8 @@
         display: inline-flex;
         align-items: flex-start;
         gap: 100px;
-        list-style-type: none
+        list-style-type: none;
+        cursor: pointer;
     }
 
     .institucional-footer .institucional-redes-sociais {
@@ -297,6 +299,7 @@
         display: inline-flex;
         align-items: flex-start;
         gap: 15px;
+        cursor: pointer;
     }
 
     .institucional-footer .institucional-redes-sociais .institucional-facebook,
