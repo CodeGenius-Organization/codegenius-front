@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './TestResult.css'
 
-function TestResult() {
+function TestResult({handleTryAgain, handleGoBackToCourse}) {
 
     
     let score = 60
@@ -27,8 +27,8 @@ function TestResult() {
                 <span>Tentativas: <b>{attempts}</b></span>
                 <span>Quantidade de vidas: <b>{heartsLeft}</b></span>
                 <div className='test-result-buttons'>
-                    <button>Voltar ao curso</button>
-                    <button>Tentar novamente</button>
+                    <button onClick={() => handleGoBackToCourse()}>Voltar ao curso</button>
+                    <button onClick={() => handleTryAgain()}>Tentar novamente</button>
                     {isApproved &&
                         <button>Continuar</button>
                     }
