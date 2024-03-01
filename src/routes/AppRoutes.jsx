@@ -16,7 +16,6 @@ import MyCourses from '../pages/student/my-courses/MyCourses'
 import Course from '../pages/student/course/Course'
 import NotFound from '../pages/not-found/NotFound'
 import CourseDetail from '../pages/student/course-detail/CourseDetail'
-import Modal from '../pages/student/settings/components/modal-password/Modal_Password'
 
 
 function AppRoutes() {
@@ -27,7 +26,6 @@ function AppRoutes() {
                 <Routes>
                     <Route exact path='/'  element={<Institutional/>} />
                     <Route path='/login' element={<Login/>} />
-                    <Route path='/modal' element={<Modal/>} />
                     <Route path='*' element={<NotFound/>}/>
                     <Route path='/student' element={<HomeStudent/>} >                        
                         <Route path='course' element={<Course/>}/>
