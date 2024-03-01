@@ -16,6 +16,7 @@ import MyCourses from '../pages/student/my-courses/MyCourses'
 import Course from '../pages/student/course/Course'
 import NotFound from '../pages/not-found/NotFound'
 import CourseDetail from '../pages/student/course-detail/CourseDetail'
+import Modal from '../pages/student/settings/components/modal-password/Modal_Password'
 
 
 function AppRoutes() {
@@ -25,6 +26,8 @@ function AppRoutes() {
             <BrowserRouter>  
                 <Routes>
                     <Route exact path='/'  element={<Institutional/>} />
+                    <Route path='/login' element={<Login/>} />
+                    <Route path='/modal' element={<Modal/>} />
                     <Route path='*' element={<NotFound/>}/>
                     <Route path='/student' element={<HomeStudent/>} >                        
                         <Route path='course' element={<Course/>}/>
@@ -33,7 +36,8 @@ function AppRoutes() {
                         <Route path='settings' element={<Settings/>} />    
                         <Route path='profile' element={<ProfileS/>} />    
                         <Route path='social' element={<Social/>} />  
-                        <Route path='my-courses' element={<MyCourses/>} />             
+                        <Route path='my-courses' element={<MyCourses/>} />  
+                                   
                     </Route> 
                     <Route path='/teacher' element={<HomeTeacher/>} >
                         <Route path='course' element={<p>Ola Professor</p>}/>

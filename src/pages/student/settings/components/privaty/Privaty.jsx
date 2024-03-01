@@ -10,9 +10,9 @@ function Privaty() {
             <h3>Foto do Perfil</h3>
             <div className='profile-img-container'>
                 <img className="profile-img" src={pfp} alt="" />
-                <div className='edit'>
+                <button className='edit'>
                     <MdOutlineModeEditOutline className='icon-edit'/>
-                </div>
+                </button>
             </div>
         </div>
         <div className='body-privaty'>
