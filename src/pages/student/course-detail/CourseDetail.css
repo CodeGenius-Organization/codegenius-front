@@ -14,9 +14,14 @@
 .course-detail-content {
     
     display: flex;
-    /* margin-left: 50px; */
-    
+    height: 95%;
     gap: 40px;
+}
+
+.course-detail-arrow-style{
+    color: "#FFF";
+    width: "24px";
+    height: "24px";
 }
 
 .breadcrumb {
@@ -41,8 +46,10 @@
 
 .course-detail-section{
     display: flex;
+    flex-direction: column;
+    gap: 40px;
     width: 100%;
-    height: ;
+    height: 100%;
 }
 
 .breadcrumb_element:hover {

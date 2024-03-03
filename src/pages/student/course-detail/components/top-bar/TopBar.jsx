@@ -7,25 +7,20 @@ import { CgNotes } from "react-icons/cg";
 import'./TopBar.css'
 
 function TopBar({ changeTab, currentTab }) {
-    const icon1Style = {color: "#FFF", width: "24px", height: "24px"}
-    const icon2Style = {color: "#FFF", width: "24px", height: "24px"}
-    const icon3Style = {color: "#FFF", width: "24px", height: "24px"}
-
-    // console.log(currentTab)
     
     return (
         <>
-            <div className="container">
-                <div className={ `item ${currentTab === "Introdução" ? "active-lesson" : ""}` } onClick={() => changeTab("Introdução")}>
-                    <MdOutlineLocalLibrary style={ icon1Style } />
+            <div className="top-bar-container">
+                <div className={ `top-bar-item ${currentTab === "Aula" ? 'top-bar-active' : ""}`} onClick={() => changeTab("Aula")}>
+                    <MdOutlineLocalLibrary className="top-bar-icon" />
                     <span>Introdução</span>
                 </div>
-                <div className={ `item ${currentTab === "Exercícios" ? "active-lesson" : ""}` } onClick={() => changeTab("Exercícios")}>
-                    <PiBarbell style={ icon2Style } />
+                <div className={ `top-bar-item ${currentTab === "Exercícios" ? 'top-bar-active' : ""}` } onClick={() => changeTab("Exercícios")}>
+                    <PiBarbell className="top-bar-icon"  />
                     <span>Exercícios</span>
                 </div>
-                <div className={ `item ${currentTab === "Prova" ? "active-lesson" : ""}` } onClick={() => changeTab("Prova")}>
-                    <CgNotes style={ icon3Style } />
+                <div className={ `top-bar-item ${currentTab === "Prova" ? 'top-bar-active' : ""}` } onClick={() => changeTab("Prova")}>
+                    <CgNotes className="top-bar-icon"  />
                     <span>Prova</span>
                 </div>
 

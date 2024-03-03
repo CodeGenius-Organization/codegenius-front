@@ -7,16 +7,12 @@ import CourseTopBar from './components/course-top-bar/CourseTopBar'
 import Filters from '../../../shared/components/filter/Filter'
 import CardLesson from '../components/card-lesson/CardLesson'
 
-// import CoursesJson from './CoursesJson'
-
 function Course() {
 
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedFilter, setSelectedFilter] = useState('none');
     const [courses, setCourses] = useState([])
     
-  
-
     const handleCategory = (category) => {
         setSelectedCategory(category)
         setCourses([])
@@ -25,9 +21,8 @@ function Course() {
     const handleFilter = (filter) => {
         setSelectedFilter(filter)
         setCourses([])
-        console.log(filter)
+        // console.log(filter)
     }
-
 
     function getAllCourses(){
         api.get(`course/courses/`,
@@ -47,7 +42,7 @@ function Course() {
     }
 
     function getByCategoryOrderSize(){
-        console.log(`course/courses/category/${selectedCategory}/${selectedFilter}/${courses.length}`)
+        // console.log(`course/courses/category/${selectedCategory}/${selectedFilter}/${courses.length}`)
         api.get(`course/courses/category/${selectedCategory}/${selectedFilter}/${courses.length}`,
         {
             headers: {
@@ -65,8 +60,6 @@ function Course() {
         });
     }
 
-    
-
     useEffect(() => {
         if (selectedCategory === 'All') {
             getAllCourses()
@@ -83,11 +76,8 @@ function Course() {
                     currentCategory={selectedCategory}
                 />
                 <Filters currentCategory={selectedCategory} onChangeFilter={handleFilter} />
-                {courses.length === 0 ? (
-                    <div className="empty-courses">
-                        <span className="not-found-courses">Cursos não encontrados!</span>
-                    </div>
-                ) : (
+                {courses.length === 0 ? 
+                "" : (
                     <>
                         <div className="course-list">
                             {

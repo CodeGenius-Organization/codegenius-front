@@ -16,14 +16,13 @@ import TestWarning from "./components/test-warning/TestWarning";
 let hearts = 3 // TODO: get API para a quantidade de vidas
 
 function CourseDetail() {
-    const arrowStyle = { color: "#FFF", width: "24px", height: "24px" }
   
     const location = useLocation()
     const navigate = useNavigate()
 
     const [course, setCourse] = useState({});
 
-    const [currentTab, setCurrentTab] = useState('Introdução');
+    const [currentTab, setCurrentTab] = useState('Aula');
     const [firstLesson, setFirstLesson] = useState({});
     const [currentContent, setCurrentContent] = useState();
     const [currentLesson, setCurrentLesson] = useState({});
@@ -61,7 +60,8 @@ function CourseDetail() {
 
     const handleLessonSelection = (lesson) => {
         setCurrentLesson(lesson);
-        // setFirstLesson(lesson.lessonContent);
+        console.log(lesson)
+        setCurrentContent(lesson.lessonContent)
     }
 
     const handleStartTest = () => {
@@ -73,52 +73,53 @@ function CourseDetail() {
         setIsTestStarted(false)
     }
 
-    const handleGoBackToCourse = () => {
-        changeTab('Introdução')
+    const goTo = (navigate) => {
+        changeTab(navigate)
     }
     
-    function handleShowContent(selectedTab) {
-        switch (selectedTab) {
-            case 'Introdução':
-                setCurrentContent(<Cover
-                    lessonTitle={firstLesson && firstLesson.title}
-                    lessonContent={firstLesson && firstLesson.content}
-                />);
-                setCurrentTab('Introdução');
-                break;
-            case 'Exercícios':
-                setCurrentContent(<Exercises />)
-                setCurrentTab('Exercícios');
-                break;
-            case 'Prova':
-                break;
-            default:
-                setCurrentContent(<Cover
-                    lessonTitle={course.title}
-                    lessonContent={course.contentDescription}
-                />)
-                break;
-        }
-    }
+    // function handleShowContent(selectedTab) {
+    //     switch (selectedTab) {
+    //         case 'Introdução':
+    //             setCurrentContent(<Cover
+    //                 lessonTitle={firstLesson && firstLesson.title}
+    //                 lessonContent={firstLesson && firstLesson.content}
+    //             />);
+    //             setCurrentTab('Introdução');
+    //             break;
+    //         case 'Exercícios':
+    //             setCurrentContent(<Exercises />)
+    //             setCurrentTab('Exercícios');
+    //             break;
+    //         case 'Prova':
+    //             break;
+    //         default:
+    //             setCurrentContent(<Cover
+    //                 lessonTitle={course.title}
+    //                 lessonContent={course.contentDescription}
+    //             />)
+    //             break;
+    //     }
+    // }
 
     let selectedTab;
-    if (currentTab === "Introdução") {
-        selectedTab = <CourseContent />
+    if (currentTab === "Aula") {
+        selectedTab = <CourseContent lesson={currentContent} goTo={goTo}/>
     } else if (currentTab === "Exercícios") {
-        selectedTab = <Exercises />
+        selectedTab = <Exercises onId={currentContent.id}/>
     } else if (currentTab === "Prova") {
-        selectedTab = isTestStarted ? <TestResult handleGoBackToCourse={handleGoBackToCourse} handleTryAgain={handleTryAgain}/> : <TestWarning hearts={hearts} handleStartTest={handleStartTest} />
+        selectedTab = isTestStarted ? 
+        <TestResult handleGoBackToCourse={goTo} handleTryAgain={handleTryAgain}/>
+         : <TestWarning hearts={hearts} handleStartTest={handleStartTest} />
     }
 
     return (
         <>
             <div className="main-section">
-                {/* TODO: componentizar o breadcrumb */}
                 <div className="breadcrumb">
                     <span className="breadcrumb_element" onClick={ () => navigate("/student/course")}>
                         Cursos
                     </span>
-                    <MdKeyboardArrowRight style={arrowStyle} />
+                    <MdKeyboardArrowRight className="course-detail-arrow-style" />
                     <span className="breadcrumb_element now" onClick={() => window.location.reload()}>
                         {course.title}
                     </span>

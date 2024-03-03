@@ -2,11 +2,15 @@ import React from "react";
 import  "./CourseContent.css"
 
 
-function CourseContent() {
+function CourseContent({ lesson, goTo }) {
     
     return (
         <>
-           <span>CONTEUDO DO CURSO</span>
+            <div className="course-content-container">
+            <span className="course-content-title">{lesson ? lesson.title : "aulaaa"}</span>
+            <span className="course-content-body">{lesson ? lesson.content: "aaaaaaaaaaaaaaaaaaaaaaaa"}</span>
+            <button className="course-content-button" onClick={() => goTo("Exercícios")}>Próximo</button>
+            </div>
         </>
     )
 }

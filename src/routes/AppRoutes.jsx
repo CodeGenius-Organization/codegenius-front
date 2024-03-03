@@ -25,7 +25,6 @@ function AppRoutes() {
             <BrowserRouter>  
                 <Routes>
                     <Route exact path='/'  element={<Institutional/>} />
-                    <Route path='/login' element={<Login/>} />
                     <Route path='*' element={<NotFound/>}/>
                     <Route path='/student' element={<HomeStudent/>} >                        
                         <Route path='course' element={<Course/>}/>

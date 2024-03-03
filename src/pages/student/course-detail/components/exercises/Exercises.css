@@ -1,0 +1,71 @@
+.exercices-container{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 90vh;
+    padding: 0px 5px;
+}
+
+.exercices-container::-webkit-scrollbar {
+    width: 10px;               /* width of the entire scrollbar */
+  }
+  
+.exercices-container::-webkit-scrollbar-track {
+    background: #121526;       /* color of the tracking area */
+  }
+  
+.exercices-container::-webkit-scrollbar-thumb {
+    background-color: #E4E4E4;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb /  / creates padding around scroll thumb */
+  }
+
+.exercises-content-info{
+    border: #22EBE5 solid 2px;
+    padding: 10px 45px;
+    text-align: center;
+    
+}
+
+.exercises-info{
+    color: #22EBE5;
+    font-size: 24px;
+    font-family: "Titillium Web";
+}
+
+.btn_corrigir{
+    color: #fff;
+    background: #4476E0;
+    padding: 10px 30px;
+    font-size: 24px;
+    border-radius: 100px;
+    margin-top: 32px;
+    border: none;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.result {
+    font-family: 'Titillium Web';
+    font-size: 24px;
+    width: 902px;
+    height: 131px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+
+    /* border: solid 1px #2FDE56;
+    color: #2FDE56; */
+}
+
+.correct_wrong {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.explanation {
+    max-width: 520px;
+    text-wrap: wrap;
+}

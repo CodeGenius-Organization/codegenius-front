@@ -4,15 +4,12 @@ import './Lesson.css'
 
 function Lesson({ lesson, moduleOrder, onLessonClick }) {
     const { lessonOrder, contentDescription, lessonTitle } = lesson;
-    // pra fazer aparecer e desaparecer o check de concluído, mexer aqui futuramente, adicionando alguma propriedade tipo hidden sla
-
-    const handleLessonSelection = (lesson) => {
-        onLessonClick(lesson);
-    }
+    // pra fazer aparecer e desaparecer o check de concluído,
+    // mexer aqui futuramente, adicionando alguma propriedade tipo hidden sla
 
     return (
         <>
-            <div className="lesson_card" onClick={() => handleLessonSelection(lesson) }>
+            <div className="lesson_card" onClick={() => onLessonClick(lesson) }>
                 <div className="lesson_order">
                     <span>{moduleOrder} - {lessonOrder}</span>
                 </div>

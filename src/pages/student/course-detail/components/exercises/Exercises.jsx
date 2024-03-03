@@ -1,108 +1,133 @@
-import React, { useContext, useEffect, useState } from 'react'
-import style from  './Exercises.module.css'
+import React, { useEffect, useState } from 'react'
+import './Exercises.css'
 import SingleAnswerQuestion from "../single-answer-question/SingleAnswerQuestion"
-import ExercisesJSON from './ExercisesJson'
-import { ContextQuestion } from '../../../../../context/contextQuestion'
 
 import { MdCheck } from "react-icons/md";
 import { MdClose } from "react-icons/md";
+import api from '../../../../../Api';
 
-function Exercises() {
+function Exercises({ onId }) {
 
-    const correctStyle = {color: "#2FDE56", width: "20px", height: "20px"}
-    const wrongStyle = {color: "#FF3737", width: "20px", height: "20px"}
-    const [contextState, dispatch] = useContext(ContextQuestion)
-    
+    const correctStyle = { color: "#2FDE56", width: "20px", height: "20px" }
+    const wrongStyle = { color: "#FF3737", width: "20px", height: "20px" }
 
-    const questoes = ExercisesJSON()
-    const [userAswer, setUserAswer] = useState([])
+    const [questoes, setQuestions] = useState([])
+    const [userAnswer, setUserAnswer] = useState([])
     const [isVisible, setIsVisible] = useState(false)
-    
-    let teste = []
-    let data = []
+    const [isInfoVisible, setIsInfoVisible] = useState(true)
 
-    function getAswer(id, aswer, explicacao){
-        console.log("entrou")
-        data = teste.map(item => {
-                if(item.id == id){
-                    item.aswerCorrect = aswer
-                    item.explicacao = explicacao
-                }
+    let dataAnswer = [];
+    let dataChangeAnswer = []
 
-                return item
+    function getListExercices() {
+        api.get(`/game/questions/exercicios/${onId}`,
+    {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${sessionStorage.getItem("authToken")}`
+        }
+    })
+    .then((response) => {
+        if (response.status === 200) {
+            setQuestions(response.data);
+
+            response.data.map(item => {
+                dataAnswer = [...dataAnswer, {
+                    id: item.id,
+                    answerCorrect: false,
+                    explicacao: "",
+                    }]
             })
+            setUserAnswer(dataAnswer)
+        }})
         
+    .catch((error) => {
+        console.log(error)
+    });
     }
 
-    function visibleAswer(){
-        if(!isVisible){
+
+    useEffect(() => {
+        getListExercices()
+        
+    },[])
+    
+    function getAswer(id, aswer, explicacao) {
+        
+        setIsInfoVisible(false)
+        console.log(`${id} + ${aswer} + ${explicacao}`)
+    
+        dataChangeAnswer = userAnswer.map(item => {
+        
+            if (item.id == id) {
+                item.answerCorrect = aswer
+                item.explicacao = explicacao
+            }
+           return item
+        })
+        setUserAnswer(dataChangeAnswer)
+        console.log(userAnswer)
+    }
+
+    function visibleAswer() {
+        if (!isVisible) {
             const inputs = document.querySelectorAll('.answer')
             inputs.forEach((item, index) => {
-                if(!item.checked){
+                if (!item.checked) {
                     item.setAttribute("disabled", true)
                 }
             }
             )
-        }else{
+        } else {
             const inputs = document.querySelectorAll('.answer')
             inputs.forEach(item => {
-                if(!item.checked){
+                if (!item.checked) {
                     item.removeAttribute("disabled")
                 }
             }
             )
         }
         setIsVisible(!isVisible)
-        
+
     }
 
 
-    useEffect(() => {
-       
-        if(contextState?.questions.length > 0) return
-        questoes.map(item => {
-           dispatch({type: "ADD-QUESTIONS", payload: { 
-            id: item.id,
-            answerCorrect: false,
-            explicacao: "",
-            }
-        
-        })        
-        })
-
-        console.log(contextState?.questions)
-        
-    }, [])
-
-  return (
-    <div>
-        {questoes.map((exercise, index) => (
-            <>
-            <SingleAnswerQuestion 
-            questionNumber={index + 1}
-            onGetAswer={getAswer}
-            exercise={exercise}
-            />
-                   
-                {isVisible && (
-                    <div className={ style.result } style={contextState.questions[index]?.correta ? {border: "solid 1px #2FDE56", color: "#2FDE56"} : {border: "solid 1px #FF3737", color: "#FF3737"}}>
-                    <div className={ style.correct_wrong }>
-                        <span>{contextState.questions[index]?.correta  ? "Correto" : "Errado"}</span>
-                        {contextState.questions[index]?.correta  ? <MdCheck style={correctStyle}/> : <MdClose style={wrongStyle}/>}
-                    </div>
-                    <div className={ style.explanation }>
-                        <span>{contextState.questions[index]?.explicacao} </span>
-                    </div>
+    return (
+        <div className='exercices-container'>
+            {
+                isInfoVisible ? (<div className='exercises-content-info'>
+                    <span className='exercises-info'>
+                        Os exercícios são totalmente opcionais. Você pode prosseguir clicando nos botões acima. Eles foram criados para proporcionar uma oportunidade de praticar e reforçar o que foi apresentado nos conteúdos anteriores.
+                    </span>
                 </div>
-                )}
-                    
+                ) : ("")
+            }
+            {questoes !== null ? questoes.map((exercise, index) => (
+                <React.Fragment key={index}>
+                    <SingleAnswerQuestion
+                        
+                        questionNumber={index + 1}
+                        onGetAswer={getAswer}
+                        exercise={exercise}
+                    />
 
-            </>
-        ))}
-        
-        <button className={style.btn_corrigir} onClick={() => visibleAswer()}>{isVisible ? "Tentar Novamente": "Corrigir"}</button>
-    </div>
-  )
+                    {isVisible && (
+                        <div className={"result"} style={userAnswer[index]?.answerCorrect ? { border: "solid 1px #2FDE56", color: "#2FDE56" } : { border: "solid 1px #FF3737", color: "#FF3737" }}>
+                            <div className={"correct_wrong"}>
+                                <span>{userAnswer[index]?.answerCorrect ? "Correto" : "Errado"}</span>
+                                {userAnswer[index]?.answerCorrect ? <MdCheck style={correctStyle} /> : <MdClose style={wrongStyle} />}
+                            </div>
+                            <div className={"explanation"}>
+                                <span>{userAnswer[index]?.explicacao} </span>
+                            </div>
+                        </div>
+                    )}
+                </React.Fragment>
+            )) : ""}
+
+            <button className={"btn_corrigir"} onClick={() => visibleAswer()}>{isVisible ? "Tentar Novamente" : "Corrigir"}</button>
+        </div>
+    )
 }
 
 export default Exercises
