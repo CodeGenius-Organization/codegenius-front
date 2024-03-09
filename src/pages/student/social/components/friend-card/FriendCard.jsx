@@ -1,22 +1,34 @@
 import React from "react";
-import './FriendCard.css'
+import "./FriendCard.css";
 
-function FriendCard() {
-    return (
-        <>
-            <div className="card">
-                <div className="profile_picture">
-                    <img src="https://play-lh.googleusercontent.com/0SAFn-mRhhDjQNYU46ZwA7tz0xmRiQG4ZuZmuwU8lYmqj6zEpnqsee_6QDuhQ4ZofwXj=w240-h480-rw" alt="" />
-                </div>
-                <div className="name">
-                    <p>Paula Maria</p>
-                </div>
-                <div className="unfollow_btn">
-                    <button className="unfollow">Deixar de seguir</button>
-                </div>
-            </div>
-        </>
-    )
+function FriendCard({ name, img, handleUnfollow, handleFollow, id }) {
+  return (
+    <>
+      <div className="card">
+        <div className="profile_picture">
+          <img src={img} alt="" />
+        </div>
+        <div className="name">
+          <p>{name}</p>
+        </div>
+        {handleUnfollow && (
+          <div className="unfollow_btn">
+            <button className="unfollow" onClick={() => handleUnfollow?.(id)}>
+              Deixar de seguir
+            </button>
+          </div>
+        )}
+
+        {handleFollow && (
+          <div className="unfollow_btn">
+            <button className="unfollow" onClick={() => handleFollow?.(id)}>
+              Seguir
+            </button>
+          </div>
+        )}
+      </div>
+    </>
+  );
 }
 
-export default FriendCard
+export default FriendCard;
