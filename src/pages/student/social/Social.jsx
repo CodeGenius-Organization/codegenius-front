@@ -6,126 +6,30 @@ import Filters from "../../../shared/components/filter/Filter";
 import FriendCard from "./components/friend-card/FriendCard";
 import TopBarSocial from "./components/top-bar-social/TopBarSocial";
 
-//MOCKADO
-import kaue from "../../institutional/assets/kaue.png";
-import lucas from "../../institutional/assets/lucas.png";
-import mariana from "../../institutional/assets/mariana.png";
-import paula from "../../institutional/assets/paula.png";
-import thiago from "../../institutional/assets/thiago.png";
-import victor from "../../institutional/assets/victor.png";
-//MOCKADO
+import {
+  _mockFollowersUsers,
+  _mockFollowingUsers,
+} from "../../../_mocks/socialMock";
+
+const tabSocialMapping = {
+  Seguindo: _mockFollowersUsers,
+  "Seus Seguidores": _mockFollowingUsers,
+};
 
 function Social() {
   const [loading, setLoading] = useState(false);
   const [selectFilter, setSelectFilter] = useState("none");
-  const [followersList, setFollowersList] = useState([]);
-  const [followingList, setFollowingList] = useState([]);
+  const [socialList, setSocialList] = useState([]);
   const [search, setSearch] = useState();
   const [currentTab, setCurrentTab] = useState("Seguindo");
 
   useEffect(() => {
-    if (currentTab === "Seguindo") {
-      setLoading(true);
-      _mockFollowersUsers().then((users) => {
-        setFollowersList(users);
-        setLoading(false);
-      });
-    } else {
-      setLoading(true);
-      _mockFollowingUsers().then((users) => {
-        setFollowingList(users);
-        setLoading(false);
-      });
-    }
+    setLoading(true);
+    tabSocialMapping[currentTab]().then((friends) => {
+      setSocialList(friends);
+      setLoading(false);
+    });
   }, [currentTab]);
-
-  const _mockFollowersUsers = () => {
-    return new Promise((res, _) => {
-      setTimeout(() => {
-        res([
-          {
-            name: "Kaue (Seguindo)",
-            id: "Kaue",
-            img: kaue,
-          },
-          {
-            name: "_",
-            id: "_",
-            img: "https://avatars.githubusercontent.com/u/38053457?v=4",
-          },
-          {
-            name: "Lucas",
-            id: "Lucas",
-            img: lucas,
-          },
-          {
-            name: "Mariana",
-            id: "Mariana",
-            img: mariana,
-          },
-          {
-            name: "Paula",
-            id: "paula",
-            img: paula,
-          },
-          {
-            name: "Thiago",
-            id: "Thiago",
-            img: thiago,
-          },
-          {
-            name: "Victor",
-            id: "Victor",
-            img: victor,
-          },
-        ]);
-      }, 2000);
-    });
-  };
-
-  const _mockFollowingUsers = () => {
-    return new Promise((res, _) => {
-      setTimeout(() => {
-        res([
-          {
-            name: "Kaue (Me segue)",
-            id: "Kaue",
-            img: kaue,
-          },
-          {
-            name: "_",
-            id: "_",
-            img: "https://avatars.githubusercontent.com/u/38053457?v=4",
-          },
-          {
-            name: "Lucas",
-            id: "Lucas",
-            img: lucas,
-          },
-          {
-            name: "Mariana",
-            id: "Mariana",
-            img: mariana,
-          },
-          {
-            name: "Paula",
-            id: "paula",
-            img: paula,
-          },
-          {
-            name: "Thiago",
-            id: "Thiago",
-            img: thiago,
-          },
-          {
-            name: "Victor",
-            id: "Victor",
-            img: victor,
-          },
-        ]);
-      }, 2000);
-    });
-  };
 
   const handleFilter = (filter) => {
     setSelectFilter(filter);
@@ -136,7 +40,7 @@ function Social() {
   };
 
   const unfollowFriend = (friendId) => {
-    setFollowersList((friends) =>
+    setSocialList((friends) =>
       friends.filter((friend) => friend.id !== friendId)
     );
   };
@@ -145,8 +49,8 @@ function Social() {
     console.log("pra fazer", friendId);
   };
 
-  const listFriends = (userList) => {
-    let filterd = [...userList];
+  const listFriends = () => {
+    let filterd = [...socialList];
 
     if (search)
       filterd = filterd.filter((friend) =>
@@ -187,11 +91,7 @@ function Social() {
             <Loading backgroundColor={"#121526"} />
           </div>
         ) : (
-          <div className="course_list">
-            {listFriends(
-              currentTab === "Seguindo" ? followersList : followingList
-            )}
-          </div>
+          <div className="course_list">{listFriends()}</div>
         )}
       </div>
     </>

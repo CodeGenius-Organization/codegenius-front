@@ -60,7 +60,7 @@
   height: 4px;
 }
 
-.course-active::before {
+.item-active::before {
   content: "";
   background: linear-gradient(
     90deg,
