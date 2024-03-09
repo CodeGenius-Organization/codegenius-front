@@ -7,6 +7,8 @@
   padding: 50px;
   max-width: 1445px;
   max-height: 953px;
+  width: -webkit-fill-available;
+  padding-bottom: 0px;
 }
 
 .course_list {

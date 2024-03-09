@@ -79,7 +79,7 @@ function Social() {
             img: victor,
           },
         ]);
-      }, 1000);
+      }, 2000);
     });
   };
 
@@ -123,7 +123,7 @@ function Social() {
             img: victor,
           },
         ]);
-      }, 1000);
+      }, 2000);
     });
   };
 
