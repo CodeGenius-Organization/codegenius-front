@@ -22,7 +22,7 @@
     width: 511px;
     overflow-y: scroll;
     height: 100%;
-    /* padding-right: 32px; */
+    padding-right: 25px;
 }
 
 .modules_container::-webkit-scrollbar {

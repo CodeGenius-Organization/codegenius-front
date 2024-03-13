@@ -27,7 +27,7 @@
 
 .test-warning-text {
     margin-bottom: 64px;
-
+    text-align: justify;
     font-size: 24px;
     font-weight: 400;
 }

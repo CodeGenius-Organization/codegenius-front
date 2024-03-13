@@ -39,6 +39,7 @@ function Exercises({ onId }) {
                     }]
             })
             setUserAnswer(dataAnswer)
+            console.log(userAnswer)
         }})
         
     .catch((error) => {
@@ -105,14 +106,14 @@ function Exercises({ onId }) {
             {questoes !== null ? questoes.map((exercise, index) => (
                 <React.Fragment key={index}>
                     <SingleAnswerQuestion
-                        
                         questionNumber={index + 1}
                         onGetAswer={getAswer}
                         exercise={exercise}
                     />
 
                     {isVisible && (
-                        <div className={"result"} style={userAnswer[index]?.answerCorrect ? { border: "solid 1px #2FDE56", color: "#2FDE56" } : { border: "solid 1px #FF3737", color: "#FF3737" }}>
+                        
+                        <div className={`exercices-result ${userAnswer[index]?.answerCorrect ? "exercices-correct" : "exercices-false"}`}>
                             <div className={"correct_wrong"}>
                                 <span>{userAnswer[index]?.answerCorrect ? "Correto" : "Errado"}</span>
                                 {userAnswer[index]?.answerCorrect ? <MdCheck style={correctStyle} /> : <MdClose style={wrongStyle} />}

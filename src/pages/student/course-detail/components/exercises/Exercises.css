@@ -44,11 +44,11 @@
     cursor: pointer;
 }
 
-.result {
+.exercices-result {
     font-family: 'Titillium Web';
     font-size: 24px;
-    width: 902px;
-    height: 131px;
+    height: max-content;
+    padding: 30px 100px;
 
     display: flex;
     justify-content: center;
@@ -68,4 +68,14 @@
 .explanation {
     max-width: 520px;
     text-wrap: wrap;
+}
+
+.exercices-correct{
+    border: solid 1px #2FDE56;
+    color: #2FDE56;
+}
+
+.exercices-false{
+    border: solid 1px #FF3737;
+    color: #FF3737; 
 }

@@ -16,8 +16,8 @@ function CardLesson({ course }) {
     return (
         <>
             <div className="cardCourse">
-                <div className="imgCourse" onClick={() => navigate(`/student/course/${course.title.replaceAll(" ","-").toLowerCase()}`,{state: { id: course.id}})}>
-                    <img src={img} alt='image' />
+                <div className="imgCourse">
+                    <img src={img} alt='image' onClick={() => navigate(`/student/course/${course.title.replaceAll(" ","-").toLowerCase()}`,{state: { id: course.id}})} />
                     <div className="fav">
                         {!favorite ?
                             <MdOutlineFavoriteBorder className='favorite' onClick={() => setFavorite(!favorite)} /> :

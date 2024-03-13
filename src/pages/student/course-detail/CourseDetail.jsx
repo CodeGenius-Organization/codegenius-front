@@ -28,7 +28,7 @@ function CourseDetail() {
     const [currentLesson, setCurrentLesson] = useState({});
 
     const [isTestStarted, setIsTestStarted] = useState();
-
+    
     function getCourseDetails(){
         api.get(`course/courses/${location.state.id}`,
         {
@@ -107,9 +107,7 @@ function CourseDetail() {
     } else if (currentTab === "Exercícios") {
         selectedTab = <Exercises onId={currentContent.id}/>
     } else if (currentTab === "Prova") {
-        selectedTab = isTestStarted ? 
-        <TestResult handleGoBackToCourse={goTo} handleTryAgain={handleTryAgain}/>
-         : <TestWarning hearts={hearts} handleStartTest={handleStartTest} />
+        selectedTab = <TestWarning handleStartTest={handleStartTest} />
     }
 
     return (

@@ -31,7 +31,7 @@ function AppRoutes() {
                         <Route exact path='/student/course/:name' element={<CourseDetail/>} />                 
                         <Route path='contact' element={<ContactUsS/>} />    
                         <Route path='settings' element={<Settings/>} />    
-                        <Route path='profile' element={<ProfileS/>} />    
+                         <Route path='profile' element={<ProfileS/>} />    
                         <Route path='social' element={<Social/>} />  
                         <Route path='my-courses' element={<MyCourses/>} />  
                                    
