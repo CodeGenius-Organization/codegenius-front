@@ -65,8 +65,8 @@ function NavBarTeacher() {
                 <div className={`logo-content ${menuToggle ? 'center-items' : ''}`}>
                     <img src={codegenius} className="logo"></img>
                     <div className={`${menuToggle ? 'text-toggle' : ''}`}>
-                        <h3>CodeGenius</h3>
-                        <p>version 1.0</p>
+                        <h3 className='logo-text'>CodeGenius</h3>
+                        <p className='logo-text'>version 1.0</p>
                     </div>
                 </div>
                 <div className="arrow-container" onClick={() => {
