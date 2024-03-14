@@ -1,44 +1,41 @@
 import React from "react";
 
 import {
-  MdOutlineList,
+  MdOutlineFormatListBulleted,
   MdOutlineFavorite,
   MdCheckCircle,
 } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa";
-import "./MyCoursesTopBar.css";
 
 function CoursesTopBar({ onChangeCategory, currentCategory }) {
   const iconStyle = { color: "#FFF", width: "24px", height: "24px" };
 
   return (
     <>
-      <div className="container ">
-        <div
-          className={`item ${currentCategory === "Todos" && "item-active"}`}
+      <div className="container-course">
+        <div className={`item-courses ${currentCategory === "Todos" && "item-active"}`}
           onClick={() => onChangeCategory?.("Todos")}
         >
-          <MdOutlineList style={iconStyle} />
+          <MdOutlineFormatListBulleted className="icon-style-course" />
           <span>Todos</span>
         </div>
         <div
-          className={`item ${currentCategory === "Favoritos" && "item-active"}`}
+          className={`item-courses ${currentCategory === "Favoritos" && "item-active"}`}
           onClick={() => onChangeCategory?.("Favoritos")}
         >
           <MdOutlineFavorite style={iconStyle} />
           <span>Favoritos</span>
         </div>
         <div
-          className={`item ${
-            currentCategory === "Em andamento" && "item-active"
-          }`}
+          className={`item-courses ${currentCategory === "Em andamento" && "item-active"
+            }`}
           onClick={() => onChangeCategory?.("Em andamento")}
         >
           <FaRegClock style={iconStyle} />
           <span>Em andamento</span>
         </div>
         <div
-          className={`item ${currentCategory === "Concluído" && "item-active"}`}
+          className={`item-courses ${currentCategory === "Concluído" && "item-active"}`}
           onClick={() => onChangeCategory?.("Concluído")}
         >
           <MdCheckCircle style={iconStyle} />
