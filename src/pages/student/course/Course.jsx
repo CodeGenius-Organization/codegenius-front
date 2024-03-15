@@ -10,17 +10,12 @@ import CardLesson from "../components/card-lesson/CardLesson";
 function Course() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedFilter, setSelectedFilter] = useState("none");
+  const [search, setSearch] = useState();
   const [courses, setCourses] = useState([]);
 
   const handleCategory = (category) => {
     setSelectedCategory(category);
     setCourses([]);
-  };
-
-  const handleFilter = (filter) => {
-    setSelectedFilter(filter);
-    setCourses([]);
-    // console.log(filter)
   };
 
   function getAllCourses() {
@@ -64,6 +59,26 @@ function Course() {
       });
   }
 
+  const renderCards = () => {
+    let filterd = [...courses];
+
+    if (search)
+      filterd = filterd.filter((course) =>
+        course?.title?.toLowerCase().includes(search)
+      );
+
+    if (selectedFilter) {
+      if (selectedFilter === "asc")
+        filterd = filterd.sort((a, b) => a.title.localeCompare(b.title));
+      if (selectedFilter === "desc")
+        filterd = filterd
+          .sort((a, b) => a.title.localeCompare(b.title))
+          .reverse();
+    }
+
+    return filterd.map((course) => <CardLesson course={course} />);
+  };
+
   useEffect(() => {
     if (selectedCategory === "All") {
       getAllCourses();
@@ -81,19 +96,14 @@ function Course() {
         />
         <Filters
           currentCategory={selectedCategory}
-          onChangeFilter={handleFilter}
+          onChangeFilter={setSelectedFilter}
+          onChangeSearch={setSearch}
         />
         {courses.length === 0 ? (
           ""
         ) : (
           <>
-            <div className="course-list">
-              {courses.map((course, index) => (
-                <React.Fragment key={index}>
-                  <CardLesson course={course} />
-                </React.Fragment>
-              ))}
-            </div>
+            <div className="course-list">{renderCards()}</div>
           </>
         )}
       </div>
