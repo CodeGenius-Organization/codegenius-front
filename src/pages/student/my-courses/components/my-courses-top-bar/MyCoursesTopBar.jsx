@@ -1,36 +1,40 @@
 import React from "react";
 
 import {
-  MdOutlineList,
+  MdOutlineFormatListBulleted,
   MdOutlineFavorite,
   MdCheckCircle,
 } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa";
-import "./MyCoursesTopBar.css";
 
 function CoursesTopBar({ onChangeCategory, currentCategory }) {
   const iconStyle = { color: "#FFF", width: "24px", height: "24px" };
+  console.log();
 
   return (
     <>
-      <div className="container ">
+      <div className="container-course">
         <div
-          className={`item ${currentCategory === "Todos" && "item-active"}`}
+          className={`item-courses ${
+            currentCategory === "Todos" && "course-active"
+          }`}
           onClick={() => onChangeCategory?.("Todos")}
         >
-          <MdOutlineList style={iconStyle} />
+          <MdOutlineFormatListBulleted className="icon-style-course" />
           <span>Todos</span>
         </div>
         <div
-          className={`item ${currentCategory === "Favoritos" && "item-active"}`}
+          className={`item-courses ${
+            currentCategory === "Favoritos" && "course-active"
+          }`}
           onClick={() => onChangeCategory?.("Favoritos")}
         >
           <MdOutlineFavorite style={iconStyle} />
           <span>Favoritos</span>
         </div>
         <div
-          className={`item ${
-            currentCategory === "Em andamento" && "item-active"
+          className={`item-courses ${
+            currentCategory === "Em andamento" && "course-active"
           }`}
           onClick={() => onChangeCategory?.("Em andamento")}
         >
@@ -38,7 +42,9 @@ function CoursesTopBar({ onChangeCategory, currentCategory }) {
           <span>Em andamento</span>
         </div>
         <div
-          className={`item ${currentCategory === "Concluído" && "item-active"}`}
+          className={`item-courses ${
+            currentCategory === "Concluído" && "course-active"
+          }`}
           onClick={() => onChangeCategory?.("Concluído")}
         >
           <MdCheckCircle style={iconStyle} />

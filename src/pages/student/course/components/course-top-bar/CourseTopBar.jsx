@@ -12,7 +12,7 @@ function DevTopBar({ onChangeCategory, currentCategory }) {
             <div className="container-course">
                 <div className={`item-courses ${currentCategory === 'All' ? 'course-active' : ''}`}
                     onClick={() => {
-                        if(currentCategory !== "All"){
+                        if (currentCategory !== "All") {
                             onChangeCategory("All")
                         }
                     }
@@ -22,7 +22,7 @@ function DevTopBar({ onChangeCategory, currentCategory }) {
                 </div>
                 <div className={`item-courses ${currentCategory === 'Backend' ? 'course-active' : ''}`}
                     onClick={() => {
-                        if(currentCategory !== "Backend"){
+                        if (currentCategory !== "Backend") {
                             onChangeCategory("Backend")
                         }
                     }}>
@@ -31,16 +31,16 @@ function DevTopBar({ onChangeCategory, currentCategory }) {
                     <span>Backend</span>
                 </div>
                 <div className={`item-courses ${currentCategory === 'Web' ? 'course-active' : ''}`}
-                 onClick={() => {
-                    if(currentCategory !== "Web"){
-                        onChangeCategory("Web")
-                    }
-                }}>
+                    onClick={() => {
+                        if (currentCategory !== "Web") {
+                            onChangeCategory("Web")
+                        }
+                    }}>
                     <FaLaptopCode className="icon-style-course" />
                     <span>Web</span>
                 </div>
                 <div className={`item-courses ${currentCategory === 'Mobile' ? 'course-active' : ''}`} onClick={() => {
-                    if(currentCategory !== "Mobile"){
+                    if (currentCategory !== "Mobile") {
                         onChangeCategory("Mobile")
                     }
                 }}>
@@ -48,7 +48,7 @@ function DevTopBar({ onChangeCategory, currentCategory }) {
                     <span>Mobile</span>
                 </div>
                 <div className={`item-courses ${currentCategory === 'Security' ? 'course-active' : ''}`} onClick={() => {
-                    if(currentCategory !== "Security"){
+                    if (currentCategory !== "Security") {
                         onChangeCategory("Security")
                     }
                 }}>
@@ -56,8 +56,8 @@ function DevTopBar({ onChangeCategory, currentCategory }) {
                     <span>Segurança</span>
                 </div>
                 <div className={`item-courses ${currentCategory === 'Database' ? 'course-active' : ''}`} onClick={() => {
-                    if(currentCategory !== "Database"){
-                    onChangeCategory("Database")
+                    if (currentCategory !== "Database") {
+                        onChangeCategory("Database")
                     }
                 }}>
                     <FaDatabase className="icon-style-course" />
