@@ -1,36 +1,10 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import './TestWarning.css'
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
-import api from '../../../../../Api'
 
 function TestWarning(
-    { goTo }
+    { goTo, hearts }
     ) {
-
-        const [hearts, setHearts] = useState()
-    
-        function getHearts(){
-            let idUser = JSON.parse(atob(sessionStorage.getItem("dataUser"))).id
-            api.get(`user/hearts/${idUser}`,
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${sessionStorage.getItem("authToken")}`
-                }
-            })
-            .then((response) => {
-                if (response.status === 200) {
-                setHearts(response.data.coracao)
-                }})
-            .catch((error) => {
-                console.log(error)
-            });
-        }
-
-        useEffect(() => {
-            getHearts()
-        },[])
-    
 
     return (
         <>

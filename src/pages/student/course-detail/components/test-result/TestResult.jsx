@@ -1,36 +1,48 @@
 import { useEffect, useState } from 'react'
 import './TestResult.css'
 
-function TestResult({goTo}) {
+import Feedback from "../feedback/Feedback"
 
-    let score = 60
-    let isApproved = score >= 60
-    
-    let startTime = '16h47'
-    let durationTime = '22 min 13 seg'
-    let heartsLeft = '2'
+function TestResult({
+    hearts,
+    onResult,
+    onDuration,
+    onStartTest,
+    goTo }) {
 
-    let resultMessage = isApproved ? 'Parabéns, você passou na prova! Não se esqueça: você pode revisar os conteúdos e praticar seu conhecimento nos exercícios quantas vezes forem necessárias.' : 'Infelizmente, você não passou na prova. No entanto, não desanime! Você pode revisar os conteúdos e praticar seu conhecimento nos exercícios quantas vezes forem necessárias e tentar novamente.'
-    let resultMessageStyle = isApproved ? {border: 'solid 1px green', color: 'green'} : {border: 'solid 1px red', color: 'red'}
+    const [modalVisible, setModalVisible] = useState(false)
+
+    function closeModal() {
+        setModalVisible(false)
+    }
 
     return (
         <>
             <div className="test-result-container">
-                <span className='test-result-score'>Pontuação: {score}%</span>
-                <div className='test-result-message' style={resultMessageStyle}>
-                    <span>{resultMessage}</span>
+                <span className='test-result-score'>Pontuação: {onResult}%</span>
+                <div className={`test-result-message ${onResult >= 60 ? "trm-success" : "trm-error"}`}>
+                    <span>{onResult >= 60 ?
+                     'Parabéns, você passou na prova! Não se esqueça: você pode revisar os conteúdos e praticar seu conhecimento nos exercícios quantas vezes forem necessárias.' :
+                      'Infelizmente, você não passou na prova. No entanto, não desanime! Você pode revisar os conteúdos e praticar seu conhecimento nos exercícios quantas vezes forem necessárias e tentar novamente.'}</span>
                 </div>
-                <span>Prova iniciada às: <b>{startTime}</b></span>
-                <span>Tempo de duração da prova: <b>{durationTime}</b></span>
-                <span>Quantidade de vidas: <b>{heartsLeft}</b></span>
+                <span>Prova iniciada às: <b>{onStartTest}</b></span>
+                <span>Tempo de duração da prova: <b>{onDuration}</b></span>
+                <span>Quantidade de vidas: <b>{hearts}</b></span>
                 <div className='test-result-buttons'>
                     <button onClick={() => goTo('Aula')}>Voltar ao curso</button>
-                    <button onClick={() => goTo('Alerta-Prova')}>Tentar novamente</button>
-                    {isApproved &&
-                        <button>Continuar</button>
+                    {onResult >= 60 ?
+                        // CHAMAR O MODAL DE FEEDBACK
+                        <button onClick={() => setModalVisible(true)}>Continuar</button> :
+                        <button onClick={() => goTo('Alerta-Prova')}>Tentar novamente</button>
                     }
                 </div>
             </div>
+
+            {modalVisible &&
+            <div className='feedback-result'>
+                <Feedback course={false} onModalClose={closeModal}/>
+            </div>
+            }
         </>
     )
 }

@@ -5,14 +5,13 @@ import {MdOutlineStarOutline, MdOutlineStarPurple500, MdOutlineStarHalf } from "
 import trophy from "./assets/feedback-trophy.png"
 import medal from "./assets/feedback-medal.png"
 
-function Feedback({course}) {
+function Feedback({course, onModalClose}) {
   return (
     <>
-    <span>
         <div className='feedback-container'>
             <div className='feedback-header'>
                 <span>FEEDBACK DO {course ? "CURSO" : "MÓDULO"}</span>
-                <MdOutlineClose className='feedback-close'/>
+                <MdOutlineClose className='feedback-close' onClick={() => onModalClose()}/>
             </div>
             <div className='feedback-body'>
                 <div className='feedback-content'>
@@ -30,14 +29,12 @@ function Feedback({course}) {
                     <textarea className='feedback-message' name="" id="" cols="30" rows="10" placeholder='Opcional'></textarea>
                     </div>
                     <div className='feedback-buttons'>
-                        <button className='feedback-btn-red'>Agora não</button>
+                        <button className='feedback-btn-red' onClick={() => onModalClose()}>Agora não</button>
                         <button className='feedback-btn-blue'>Enviar</button>
                     </div>
                 </div>
-
             </div>
         </div>
-    </span>
     </>
   )
 }

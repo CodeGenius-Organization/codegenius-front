@@ -6,7 +6,7 @@ import { CgNotes } from "react-icons/cg";
 
 import './TopBar.css'
 
-function TopBar({ goTo, currentTab }) {
+function TopBar({ goTo, currentTab, t }) {
 
     const [secondState, setSecondState] = useState(0);
     const [minuteState, setMinuteState] = useState(0);
@@ -33,6 +33,7 @@ function TopBar({ goTo, currentTab }) {
             setMinuteState(0);
             setHourState(hour);
         }
+        t(hour, minute, second)
     }
 
     function returnData(value) {

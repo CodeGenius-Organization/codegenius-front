@@ -25,6 +25,11 @@ function CourseDetail() {
     const [currentContent, setCurrentContent] = useState();
     const [currentLesson, setCurrentLesson] = useState({});
 
+    const [startTest, setStartTest] = useState("");
+    const [durationTest, setDurationTest] = useState("");
+    const [resultPercent, setResultPercent] = useState(0);
+    const [hearts, setHearts] = useState(0);
+
     function getCourseDetails() {
         api.get(`course/courses/${location.state.id}`,
             {
@@ -43,13 +48,59 @@ function CourseDetail() {
             });
     }
 
+    function getHearts() {
+        api.get(`user/hearts/${JSON.parse(atob(sessionStorage.getItem("dataUser"))).id}`,
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${sessionStorage.getItem("authToken")}`
+                }
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    setHearts(response.data.coracao)
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+    }
+
+    function patchHearts() {
+        let updateVida = hearts
+
+        api.put(`user/hearts/${JSON.parse(atob(sessionStorage.getItem("dataUser"))).id}`,
+            {
+                coracao: (updateVida - 1).toString(),
+            },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${sessionStorage.getItem("authToken")}`
+                }
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    setHearts(response.data.coracao)
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+    }
+
     useEffect(() => {
         getCourseDetails();
+        getHearts()
     }, [])
 
-    // useEffect(() => {
-    //     handleShowContent('Introdução');
-    // }, [firstLesson, currentLesson])
+    useEffect(() => {
+        if (currentTab === "Prova") {
+            let today = new Date()
+            setStartTest(`${today.getHours() + 'h'}${today.getMinutes()}`)
+        }
+    }, [currentTab])
+
 
     const goTo = (navigate) => {
         setCurrentTab(navigate);
@@ -60,42 +111,20 @@ function CourseDetail() {
         setCurrentContent(lesson.lessonContent)
     }
 
-    const finish = (respostas) => {
-        // func para pegar resultado
-        console.log("CHEGUEI AQ")
-        console.log(respostas)
-        // func para pegar hora
+    const finish = (perc) => {
+        setResultPercent(perc)
+
+        if (perc < 60) {
+            patchHearts()
+        }
+
         goTo("Resultado-Prova")
     }
 
-    const handleTryAgain = () => {
-        hearts--;
-        setIsTestStarted(false)
+    function t(h, m, s) {
+        let duration = `${h > 0 ? h + ' hr(s) ' : ""}${m > 0 ? m + ' min ' : ""}${s > 0 ? s + ' seg' : ""}`
+        setDurationTest(duration)
     }
-
-    // function handleShowContent(selectedTab) {
-    //     switch (selectedTab) {
-    //         case 'Introdução':
-    //             setCurrentContent(<Cover
-    //                 lessonTitle={firstLesson && firstLesson.title}
-    //                 lessonContent={firstLesson && firstLesson.content}
-    //             />);
-    //             setCurrentTab('Introdução');
-    //             break;
-    //         case 'Exercícios':
-    //             setCurrentContent(<Exercises />)
-    //             setCurrentTab('Exercícios');
-    //             break;
-    //         case 'Prova':
-    //             break;
-    //         default:
-    //             setCurrentContent(<Cover
-    //                 lessonTitle={course.title}
-    //                 lessonContent={course.contentDescription}
-    //             />)
-    //             break;
-    //     }
-    // }
 
     let selectedTab;
 
@@ -107,13 +136,22 @@ function CourseDetail() {
             selectedTab = <Exercises onId={currentContent.id} />
             break;
         case "Alerta-Prova":
-            selectedTab = <TestWarning goTo={goTo} />
+            selectedTab = <TestWarning hearts={hearts} goTo={goTo} />
             break;
         case "Prova":
-            selectedTab = <Test onId={currentContent.id} handleRespost={finish}/>
+            selectedTab = <Test onId={currentContent.id} handleRespost={finish} />
             break;
         case "Resultado-Prova":
-            selectedTab = <TestResult goTo={goTo} />
+            console.log(hearts)
+            console.log(resultPercent)
+            console.log(durationTest)
+            console.log(startTest)
+            selectedTab = <TestResult
+                hearts={hearts}
+                onResult={resultPercent}
+                onDuration={durationTest}
+                onStartTest={startTest}
+                goTo={goTo} />
             break;
         default:
             break;
@@ -141,7 +179,7 @@ function CourseDetail() {
                                 contentDescription={course.contentDescription}
                             /> :
                             <React.Fragment>
-                                <TopBar currentTab={currentTab} goTo={goTo} />
+                                <TopBar currentTab={currentTab} goTo={goTo} t={t} />
                                 {selectedTab}
                             </React.Fragment>
                         }

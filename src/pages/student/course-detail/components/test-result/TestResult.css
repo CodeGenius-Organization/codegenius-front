@@ -25,8 +25,7 @@
     font-weight: bold;
 }
 
-.test-result-container .test-result-message {
-    border: solid 1px red;
+.test-result-message {
     display: flex;
     padding: 30px 50px;
 }
@@ -55,4 +54,26 @@
     
     font-family: 'Titillium Web';
     font-size: 24px;
+}
+
+.trm-error{
+    border: solid 1px red;
+    color: red;
+}
+
+.trm-success{
+    border: solid 1px green;
+    color: green;
+}
+.feedback-result{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
 }

@@ -12,6 +12,17 @@ function Test({onId, handleRespost}) {
     let dataAnswer = [];
     let dataChangeAnswer = []
 
+    function calcResult() {
+        let acertos = 0
+        userAnswer.forEach(
+            (resposta) => {
+                if (resposta.answerCorrect) acertos++
+            }
+        )
+        return ((acertos * 100) / userAnswer.length).toFixed();
+    }
+
+
     function getListExercices() {
         api.get(`/game/questions/exercicios/${onId}`,
     {
@@ -41,8 +52,8 @@ function Test({onId, handleRespost}) {
 
     useEffect(() => {
         getListExercices()
-        
     },[])
+
     
     function getAswer(id, aswer, explicacao) {
         
@@ -71,7 +82,11 @@ function Test({onId, handleRespost}) {
                 </React.Fragment>
             )) : ""}
 
-            <button className={"btn_corrigir"} onClick={() => handleRespost(userAnswer)}>Finalizar</button>
+            <button className={"btn_corrigir"} onClick={() => {
+                console.log(calcResult())
+                handleRespost(calcResult())
+            }
+            }>Finalizar</button>
         </div>
     )
 }
