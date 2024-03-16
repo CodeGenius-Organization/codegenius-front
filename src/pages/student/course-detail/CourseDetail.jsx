@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MdKeyboardArrowRight } from 'react-icons/md'
-import { useLocation, useNavigate } from "react-router-dom"; 
+import { useLocation, useNavigate } from "react-router-dom";
 
 import api from '../../../Api'
 import "./CourseDetail.css"
@@ -10,40 +10,37 @@ import Cover from "./components/cover/Cover";
 import TopBar from "./components/top-bar/TopBar";
 import CourseContent from "./components/course-content/CourseContent";
 import Exercises from "./components/exercises/Exercises";
+import Test from "./components/test/Test";
 import TestResult from "./components/test-result/TestResult";
 import TestWarning from "./components/test-warning/TestWarning";
 
-let hearts = 3 // TODO: get API para a quantidade de vidas
-
 function CourseDetail() {
-  
+
     const location = useLocation()
     const navigate = useNavigate()
 
     const [course, setCourse] = useState({});
 
     const [currentTab, setCurrentTab] = useState('Aula');
-    const [firstLesson, setFirstLesson] = useState({});
     const [currentContent, setCurrentContent] = useState();
     const [currentLesson, setCurrentLesson] = useState({});
 
-    const [isTestStarted, setIsTestStarted] = useState();
-    
-    function getCourseDetails(){
+    function getCourseDetails() {
         api.get(`course/courses/${location.state.id}`,
-        {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${sessionStorage.getItem("authToken")}`
-            }
-        })
-        .then((response) => {
-            if (response.status === 200) {
-                setCourse(response.data);
-            }})
-        .catch((error) => {
-            console.log(error)
-        });
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${sessionStorage.getItem("authToken")}`
+                }
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    setCourse(response.data);
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+            });
     }
 
     useEffect(() => {
@@ -54,18 +51,21 @@ function CourseDetail() {
     //     handleShowContent('Introdução');
     // }, [firstLesson, currentLesson])
 
-    const changeTab = (tabName) => {
-        setCurrentTab(tabName);
+    const goTo = (navigate) => {
+        setCurrentTab(navigate);
     }
 
     const handleLessonSelection = (lesson) => {
         setCurrentLesson(lesson);
-        console.log(lesson)
         setCurrentContent(lesson.lessonContent)
     }
 
-    const handleStartTest = () => {
-        setIsTestStarted(true);
+    const finish = (respostas) => {
+        // func para pegar resultado
+        console.log("CHEGUEI AQ")
+        console.log(respostas)
+        // func para pegar hora
+        goTo("Resultado-Prova")
     }
 
     const handleTryAgain = () => {
@@ -73,10 +73,6 @@ function CourseDetail() {
         setIsTestStarted(false)
     }
 
-    const goTo = (navigate) => {
-        changeTab(navigate)
-    }
-    
     // function handleShowContent(selectedTab) {
     //     switch (selectedTab) {
     //         case 'Introdução':
@@ -102,19 +98,32 @@ function CourseDetail() {
     // }
 
     let selectedTab;
-    if (currentTab === "Aula") {
-        selectedTab = <CourseContent lesson={currentContent} goTo={goTo}/>
-    } else if (currentTab === "Exercícios") {
-        selectedTab = <Exercises onId={currentContent.id}/>
-    } else if (currentTab === "Prova") {
-        selectedTab = <TestWarning handleStartTest={handleStartTest} />
+
+    switch (currentTab) {
+        case "Aula":
+            selectedTab = <CourseContent lesson={currentContent} goTo={goTo} />
+            break;
+        case "Exercícios":
+            selectedTab = <Exercises onId={currentContent.id} />
+            break;
+        case "Alerta-Prova":
+            selectedTab = <TestWarning goTo={goTo} />
+            break;
+        case "Prova":
+            selectedTab = <Test onId={currentContent.id} handleRespost={finish}/>
+            break;
+        case "Resultado-Prova":
+            selectedTab = <TestResult goTo={goTo} />
+            break;
+        default:
+            break;
     }
 
     return (
         <>
             <div className="main-section">
                 <div className="breadcrumb">
-                    <span className="breadcrumb_element" onClick={ () => navigate("/student/course")}>
+                    <span className="breadcrumb_element" onClick={() => navigate("/student/course")}>
                         Cursos
                     </span>
                     <MdKeyboardArrowRight className="course-detail-arrow-style" />
@@ -125,16 +134,16 @@ function CourseDetail() {
                 <div className="course-detail-content">
                     <ModuleList modules={course.modules} onLessonClick={handleLessonSelection} />
                     <div className="course-detail-section">
-                        {currentLesson.id &&
-                            <TopBar currentTab={currentTab} changeTab={changeTab}/>
-                        }
-                        {!currentLesson.id ? 
+                        {!currentLesson.id ?
                             <Cover
-                            title={course.title}
-                            courseDescription={course.courseDescription}
-                            contentDescription={course.contentDescription}
+                                title={course.title}
+                                courseDescription={course.courseDescription}
+                                contentDescription={course.contentDescription}
                             /> :
-                            selectedTab
+                            <React.Fragment>
+                                <TopBar currentTab={currentTab} goTo={goTo} />
+                                {selectedTab}
+                            </React.Fragment>
                         }
                     </div>
                 </div>

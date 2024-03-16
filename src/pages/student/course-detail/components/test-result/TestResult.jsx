@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react'
 import './TestResult.css'
 
-function TestResult({handleTryAgain, goTo}) {
+function TestResult({goTo}) {
 
-    
     let score = 60
     let isApproved = score >= 60
     
     let startTime = '16h47'
     let durationTime = '22 min 13 seg'
-    let attempts = '1'
     let heartsLeft = '2'
 
     let resultMessage = isApproved ? 'Parabéns, você passou na prova! Não se esqueça: você pode revisar os conteúdos e praticar seu conhecimento nos exercícios quantas vezes forem necessárias.' : 'Infelizmente, você não passou na prova. No entanto, não desanime! Você pode revisar os conteúdos e praticar seu conhecimento nos exercícios quantas vezes forem necessárias e tentar novamente.'
@@ -24,11 +22,10 @@ function TestResult({handleTryAgain, goTo}) {
                 </div>
                 <span>Prova iniciada às: <b>{startTime}</b></span>
                 <span>Tempo de duração da prova: <b>{durationTime}</b></span>
-                <span>Tentativas: <b>{attempts}</b></span>
                 <span>Quantidade de vidas: <b>{heartsLeft}</b></span>
                 <div className='test-result-buttons'>
                     <button onClick={() => goTo('Aula')}>Voltar ao curso</button>
-                    <button onClick={() => handleTryAgain()}>Tentar novamente</button>
+                    <button onClick={() => goTo('Alerta-Prova')}>Tentar novamente</button>
                     {isApproved &&
                         <button>Continuar</button>
                     }

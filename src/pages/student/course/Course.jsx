@@ -76,7 +76,7 @@ function Course() {
           .reverse();
     }
 
-    return filterd.map((course) => <CardLesson course={course} />);
+    return filterd.map((course, index) => <CardLesson key={index} course={course} />);
   };
 
   useEffect(() => {
