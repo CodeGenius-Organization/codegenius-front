@@ -26,6 +26,7 @@ function CourseDetail() {
     const [currentLesson, setCurrentLesson] = useState({});
 
     const [startTest, setStartTest] = useState("");
+    const [dataInicio, setDataInicio] = useState("");
     const [durationTest, setDurationTest] = useState("");
     const [resultPercent, setResultPercent] = useState(0);
     const [hearts, setHearts] = useState(0);
@@ -68,10 +69,35 @@ function CourseDetail() {
 
     function patchHearts() {
         let updateVida = hearts
-
         api.put(`user/hearts/${JSON.parse(atob(sessionStorage.getItem("dataUser"))).id}`,
             {
                 coracao: (updateVida - 1).toString(),
+            },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${sessionStorage.getItem("authToken")}`
+                }
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    setHearts(response.data.coracao)
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+    }
+
+    function postResultProva(perc) {
+
+        api.post(`course/test-attempts/`,
+            {
+                userId: `${JSON.parse(atob(sessionStorage.getItem("dataUser"))).id}`,
+                moduleLessonId: currentLesson.id,
+                score: perc,
+                attemptStartDate: dataInicio,
+                attemptDuration: durationTest
             },
             {
                 headers: {
@@ -97,10 +123,20 @@ function CourseDetail() {
     useEffect(() => {
         if (currentTab === "Prova") {
             let today = new Date()
-            setStartTest(`${today.getHours() + 'h'}${today.getMinutes()}`)
+            let todayMouth = today.getMonth()
+            let todayMinute = today.getMinutes()
+
+            if(todayMouth < 10){
+                todayMouth = `0${today.getMonth()}`
+            }
+
+            if(todayMinute < 10){
+                todayMinute = `0${today.getMinutes()}`
+            }
+            setStartTest(`${today.getHours()+"h"+today.getMinutes()}`)
+            setDataInicio(`${today.getDate()+"-"+todayMouth+"-"+today.getFullYear()} ${today.getHours()+":"+today.getMinutes()+":"+today.getSeconds()}`)
         }
     }, [currentTab])
-
 
     const goTo = (navigate) => {
         setCurrentTab(navigate);
@@ -113,7 +149,7 @@ function CourseDetail() {
 
     const finish = (perc) => {
         setResultPercent(perc)
-
+        postResultProva(perc)
         if (perc < 60) {
             patchHearts()
         }
@@ -142,10 +178,6 @@ function CourseDetail() {
             selectedTab = <Test onId={currentContent.id} handleRespost={finish} />
             break;
         case "Resultado-Prova":
-            console.log(hearts)
-            console.log(resultPercent)
-            console.log(durationTest)
-            console.log(startTest)
             selectedTab = <TestResult
                 hearts={hearts}
                 onResult={resultPercent}
