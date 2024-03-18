@@ -10,10 +10,7 @@
 }
 
 .input_icon {
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 15px;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -50,24 +47,6 @@
 
 .input_icon > input:focus {
     outline: none;
-}
-
-.search_section > button {
-    width: 87px;
-    
-    border: none;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    
-    background-color: #4476E0;
-    
-    font-family: 'Titillium Web';
-    font-size: 16px;
-    color: #FFF;
-    
-    text-align: center;
 }
 
 .search_section > select {

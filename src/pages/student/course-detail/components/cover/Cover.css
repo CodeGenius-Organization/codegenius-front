@@ -8,7 +8,7 @@
 
 .cover-section > span {
     font-family: 'Raleway';
-    font-size: 32px;
+    font-size: 1.8rem;
     font-weight: 600;
     color: #FFF;
 }
@@ -22,7 +22,7 @@
 
 .cover-lesson-header > span {
     font-family: 'Titillium Web';
-    font-size: 48px;
+    font-size: 2.1rem;
     font-weight: 600;
     color: #FFF;
 }
@@ -30,13 +30,10 @@
 .cover-like-button {
     border: solid 1px #FFF;
     border-radius: 100px;
-
     width: 109px;
-    height: 40px;
-    
+    height: 40px;    
     display: flex;
     align-items: center;
-    
     color: #FFF;
     gap: 8px;
     padding: 0px 15px;
@@ -44,7 +41,7 @@
 
 .cover-like-button > span {
     font-family: 'Raleway';
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: normal;
 }
 
@@ -52,9 +49,8 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-
     font-family: 'Titillium Web';
-    font-size: 24px;
+    font-size: 1.2rem;
     font-weight: normal;
     color: #FFF;
 }

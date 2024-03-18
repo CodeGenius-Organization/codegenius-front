@@ -58,7 +58,7 @@ function MyCourses() {
 
   return (
     <>
-      <div className="main_section">
+      <div className="main-section-course">
         <MyCoursesTopBar
           currentCategory={selectedCategory}
           onChangeCategory={setSelectedCategory}

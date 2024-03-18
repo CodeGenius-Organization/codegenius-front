@@ -8,6 +8,7 @@
 
 .module-list-container>span{
   text-align: start;
+  font-size: 1.5rem;
 }
 
 .modules_container {
@@ -47,7 +48,7 @@
 }
 
 .modules_container > .title {
-    /* border: solid 2px red; */
+    border: solid 2px red;
     font-family: 'Raleway';
     font-size: 32px;
     font-weight: 600;
