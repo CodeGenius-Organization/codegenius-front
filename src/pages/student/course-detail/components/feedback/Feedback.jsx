@@ -1,12 +1,13 @@
 import React from 'react'
 import "./Feedback.css"
 import { MdOutlineClose } from "react-icons/md";
-import {MdOutlineStarOutline, MdOutlineStarPurple500, MdOutlineStarHalf } from "react-icons/md";
 import trophy from "./assets/feedback-trophy.png"
 import medal from "./assets/feedback-medal.png"
+import StarRate from "../star-rating/StarRating"
 
 function Feedback({course, onModalClose}) {
-  return (
+
+    return (
     <>
         <div className='feedback-container'>
             <div className='feedback-header'>
@@ -19,13 +20,7 @@ function Feedback({course, onModalClose}) {
                     <div className='feedback-content-description'>
                     <img className='feedback-image' src={course ? trophy : medal} alt="" />
                     <span className='feedback-description'>{course ? "Nos dê sua opinião sobre o curso:" : "Nos dê sua opinião sobre o conteúdo deste módulo que acabou de concluir:"}</span>
-                    <div className='feedback-stars'>
-                        <MdOutlineStarOutline className='feedback-icon-star'/>
-                        <MdOutlineStarOutline className='feedback-icon-star'/>
-                        <MdOutlineStarOutline className='feedback-icon-star'/>
-                        <MdOutlineStarOutline className='feedback-icon-star'/>
-                        <MdOutlineStarOutline className='feedback-icon-star'/>
-                    </div>
+                    <StarRate />
                     <textarea className='feedback-message' name="" id="" cols="30" rows="10" placeholder='Opcional'></textarea>
                     </div>
                     <div className='feedback-buttons'>
