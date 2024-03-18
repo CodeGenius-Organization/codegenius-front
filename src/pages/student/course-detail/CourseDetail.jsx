@@ -112,7 +112,7 @@ function CourseDetail() {
 
     return (
         <>
-            <div className="main-section">
+            <div className="main-section-course">
                 <div className="breadcrumb">
                     <span className="breadcrumb_element" onClick={ () => navigate("/student/course")}>
                         Cursos

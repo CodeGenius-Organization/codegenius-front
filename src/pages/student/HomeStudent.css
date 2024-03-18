@@ -1,13 +1,4 @@
 
-.home-container{
-    /* border: solid 2px red; */
-    background-color: #121526;
-    width: 100%;
-    max-height: 100vh;
-    display: flex;
-    font-family: sans-serif;
-}
-
 .logout-container{
     /* border: solid 1px red; */
     

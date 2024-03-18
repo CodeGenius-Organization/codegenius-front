@@ -24,7 +24,6 @@ function Filters({ currentCategory, onChangeFilter, onChangeSearch }) {
               }}
             />
           </div>
-          <button>Buscar</button>
         </div>
         <div className="filter_section">
           <span>Filtrar por:</span>
