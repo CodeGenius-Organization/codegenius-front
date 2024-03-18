@@ -76,7 +76,9 @@ function Course() {
           .reverse();
     }
 
-    return filterd.map((course, index) => <CardLesson key={index} course={course} />);
+    return filterd.map((course, index) => (
+      <CardLesson key={index} course={course} />
+    ));
   };
 
   useEffect(() => {
@@ -95,7 +97,7 @@ function Course() {
           currentCategory={selectedCategory}
         />
         <Filters
-          currentCategory={selectedCategory}
+          currentCategory={selectedFilter}
           onChangeFilter={setSelectedFilter}
           onChangeSearch={setSearch}
         />
