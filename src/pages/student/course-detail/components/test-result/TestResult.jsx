@@ -8,9 +8,10 @@ function TestResult({
     onResult,
     onDuration,
     onStartTest,
+    onSubmitFeedback,
     goTo }) {
 
-    const [modalVisible, setModalVisible] = useState(false)
+    const [modalVisible, setModalVisible] = useState(onResult>=60)
 
     function closeModal() {
         setModalVisible(false)
@@ -32,7 +33,7 @@ function TestResult({
                     <button onClick={() => goTo('Aula')}>Voltar ao curso</button>
                     {onResult >= 60 ?
                         // CHAMAR O MODAL DE FEEDBACK
-                        <button onClick={() => setModalVisible(true)}>Continuar</button> :
+                        <button onClick={() => goTo('Aula')}>Continuar</button> :
                         <button onClick={() => goTo('Alerta-Prova')}>Tentar novamente</button>
                     }
                 </div>
@@ -40,7 +41,7 @@ function TestResult({
 
             {modalVisible &&
             <div className='feedback-result'>
-                <Feedback course={false} onModalClose={closeModal}/>
+                <Feedback course={false} onModalClose={closeModal} onSubmitFeedback={onSubmitFeedback}/>
             </div>
             }
         </>

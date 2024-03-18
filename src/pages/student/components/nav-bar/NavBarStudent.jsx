@@ -85,16 +85,16 @@ function NavBarStudent() {
                   <p className={`${menuToggle ? 'text-toggle' : ''}`}>CURSOS</p>
                 </li>
                 </Link>
-                <Link to="my-courses">
+                {/* <Link to="my-courses">
                 <li className={`${location.pathname === '/student/my-courses' ? 'active' : ''}`}>
                 <MdOutlineHiking className={`logo-item-list ${menuToggle ? 'center-items' : ''}`} />
                 <p className={`${menuToggle ? 'text-toggle' : ''}`}>SEUS CURSOS</p>
                 </li>
-                </Link>
+                </Link> */}
               </ul>
             </div>
 
-            <div className={`list-menu-container`}>
+            {/* <div className={`list-menu-container`}>
               <h4>SOBRE VOCÊ</h4>
               <ul>
                 <Link to="profile">
@@ -116,17 +116,17 @@ function NavBarStudent() {
                 </li>
                 </Link>
               </ul>
-            </div>
+            </div> */}
 
             <div className={`list-menu-container flex-end-style`}>
               <ul>
                 
-                <Link to="contact">
+                {/* <Link to="contact">
                 <li className={`${location.pathname === '/student/contact' ? 'active' : ''}`}>
                   <MdHelpOutline className={`logo-item-list ${menuToggle ? 'center-items' : ''}`} />
                   <p className={`${menuToggle ? 'text-toggle' : ''}`}>FALE CONOSCO</p>
                 </li>
-                </Link>
+                </Link> */}
                 <li onClick={() => handleLogout()}>
                   <MdLogout className={`logo-item-list ${menuToggle ? 'center-items' : ''}`} />
                   <p className={`${menuToggle ? 'text-toggle' : ''}`}>SAIR</p>

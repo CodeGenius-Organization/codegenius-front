@@ -96,11 +96,11 @@ function Course() {
           onChangeCategory={handleCategory}
           currentCategory={selectedCategory}
         />
-        <Filters
+        {/* <Filters
           currentCategory={selectedFilter}
           onChangeFilter={setSelectedFilter}
           onChangeSearch={setSearch}
-        />
+        /> */}
         {courses.length === 0 ? (
           ""
         ) : (

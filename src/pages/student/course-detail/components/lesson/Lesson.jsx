@@ -2,14 +2,14 @@ import React from "react";
 // import {MdDone} from "react-icons/md";
 import './Lesson.css'
 
-function Lesson({ lesson, moduleOrder, onLessonClick }) {
+function Lesson({ moduleId, lesson, moduleOrder, onLessonClick }) {
     const { lessonOrder, contentDescription, lessonTitle } = lesson;
     // pra fazer aparecer e desaparecer o check de concluído,
     // mexer aqui futuramente, adicionando alguma propriedade tipo hidden sla
 
     return (
         <>
-            <div className="lesson_card" onClick={() => onLessonClick(lesson) }>
+            <div className="lesson_card" onClick={() => onLessonClick(lesson, moduleId) }>
                 <div className="lesson_order">
                     <span>{moduleOrder} - {lessonOrder}</span>
                 </div>

@@ -2,7 +2,7 @@ import React from "react";
 import './Module.css'
 import Lesson from "../lesson/Lesson";
 
-function Module({ module, onLessonClick }) {
+function Module({ module, onLessonClick, moduleId }) {
     const { moduleName, lessons, moduleOrder } = module;
     
     return (
@@ -11,6 +11,7 @@ function Module({ module, onLessonClick }) {
             <div className="lessons">
                 { lessons.map((lesson) => (
                     <Lesson 
+                    moduleId={moduleId}
                     lesson={ lesson }
                     key={ lesson.id }
                     moduleOrder={ moduleOrder }

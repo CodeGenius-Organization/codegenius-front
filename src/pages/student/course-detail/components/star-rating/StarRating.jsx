@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { MdOutlineStarOutline } from "react-icons/md";
 import "./StarRating.css"
 
-export default function StarRating() {
+export default function StarRating({onRating}) {
 
     const [rating, setRating] = useState(null)
     const [rateColor, setColor] = useState(null)
@@ -18,7 +18,10 @@ export default function StarRating() {
                                 <MdOutlineStarOutline size={50}
                                     color={currentRate <= (rateColor || rating) ? "#F4CC3B" : "#242c50"}
                                     value={currentRate}
-                                    onClick={() => setRating(currentRate)}
+                                    onClick={() => {
+                                        setRating(currentRate)
+                                        onRating(currentRate)
+                                    }}
                                 />
                             </label>
                         </React.Fragment>
