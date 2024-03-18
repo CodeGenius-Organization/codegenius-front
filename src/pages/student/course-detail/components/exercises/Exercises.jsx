@@ -39,7 +39,7 @@ function Exercises({ onId }) {
                     }]
             })
             setUserAnswer(dataAnswer)
-            console.log(userAnswer)
+            // console.log(userAnswer)
         }})
         
     .catch((error) => {

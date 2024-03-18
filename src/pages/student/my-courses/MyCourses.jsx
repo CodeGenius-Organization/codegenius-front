@@ -26,7 +26,7 @@ function MyCourses() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState();
-  const [selectFilter, setSelectFilter] = useState("none");
+  const [selectedFilter, setSelectedFilter] = useState("none");
 
   useEffect(() => {
     setLoading(true);
@@ -36,14 +36,6 @@ function MyCourses() {
     });
   }, [selectedCategory]);
 
-  const handleFilter = (filter) => {
-    setSelectFilter(filter);
-  };
-
-  const handleSearchFilter = (filter) => {
-    setSearch(filter);
-  };
-
   const listCourses = () => {
     let filterd = [...courses];
 
@@ -52,10 +44,10 @@ function MyCourses() {
         course?.title?.toLowerCase().includes(search)
       );
 
-    if (selectFilter) {
-      if (selectFilter === "asc")
+    if (selectedFilter) {
+      if (selectedFilter === "asc")
         filterd = filterd.sort((a, b) => a.title.localeCompare(b.title));
-      if (selectFilter === "desc")
+      if (selectedFilter === "desc")
         filterd = filterd
           .sort((a, b) => a.title.localeCompare(b.title))
           .reverse();
@@ -72,9 +64,9 @@ function MyCourses() {
           onChangeCategory={setSelectedCategory}
         />
         <Filter
-          onChangeFilter={handleFilter}
-          currentCategory={selectFilter}
-          onChangeSearch={handleSearchFilter}
+          onChangeFilter={setSelectedFilter}
+          currentCategory={selectedFilter}
+          onChangeSearch={setSearch}
         />
         {loading ? (
           <div className="loading-container">
