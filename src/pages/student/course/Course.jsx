@@ -14,9 +14,14 @@ function Course() {
   const [courses, setCourses] = useState([]);
 
   const handleCategory = (category) => {
-    setSelectedCategory(category);
     setCourses([]);
+    setSelectedCategory(category);
   };
+
+  function setFilterTo(params) {
+    setSelectedFilter(params)
+    setCourses([]);
+  }
 
   function getAllCourses() {
     api
@@ -37,7 +42,7 @@ function Course() {
   }
 
   function getByCategoryOrderSize() {
-    // console.log(`course/courses/category/${selectedCategory}/${selectedFilter}/${courses.length}`)
+    console.log(`course/courses/category/${selectedCategory}/${selectedFilter}/${courses.length}`)
     api
       .get(
         `course/courses/category/${selectedCategory}/${selectedFilter}/${courses.length}`,
@@ -85,6 +90,7 @@ function Course() {
     if (selectedCategory === "All") {
       getAllCourses();
     } else {
+      setCourses([]);
       getByCategoryOrderSize();
     }
   }, [selectedCategory, selectedFilter]);
@@ -98,7 +104,7 @@ function Course() {
         />
         <Filters
           currentCategory={selectedFilter}
-          onChangeFilter={setSelectedFilter}
+          onChangeFilter={setFilterTo}
           onChangeSearch={setSearch}
         />
         {courses.length === 0 ? (
