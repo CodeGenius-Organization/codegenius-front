@@ -18,12 +18,12 @@ function CardLesson({ course }) {
             <div className="cardCourse">
                 <div className="imgCourse">
                     <img src={img} alt='image' onClick={() => navigate(`/student/course/${course.title.replaceAll(" ","-").toLowerCase()}`,{state: { id: course.id}})} />
-                    <div className="fav">
+                    {/* <div className="fav">
                         {!favorite ?
                             <MdOutlineFavoriteBorder className='favorite' onClick={() => setFavorite(!favorite)} /> :
                             <MdOutlineFavorite className='favorite-fill' onClick={() => setFavorite(!favorite)} />
                         }
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="containerCourse">

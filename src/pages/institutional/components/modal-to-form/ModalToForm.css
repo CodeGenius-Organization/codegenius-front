@@ -65,13 +65,6 @@
     font-size: 30px;
 }
 
-.logo-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-}
-
 .logo-container>p{
     font-size: 24px;
     font-family: 'DM Sans', sans-serif;
