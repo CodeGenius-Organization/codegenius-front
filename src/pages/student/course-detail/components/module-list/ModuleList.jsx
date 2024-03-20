@@ -15,7 +15,8 @@ function ModuleList({ modules, onLessonClick }) {
                             <Module
                                 module={module}
                                 key={module.id}
-                                onLessonClick={onLessonClick} />
+                                onLessonClick={onLessonClick}
+                                moduleId={module.id} />
                         ))}
                     </div>
                 </div>

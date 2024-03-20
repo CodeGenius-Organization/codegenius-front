@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import api from "../../../Api";
 import "./CourseDetail.css";
@@ -19,6 +20,7 @@ function CourseDetail() {
   const navigate = useNavigate();
 
   const [course, setCourse] = useState({});
+  const [moduleId, setModuleId] = useState();
 
   const [currentTab, setCurrentTab] = useState("Aula");
   const [currentContent, setCurrentContent] = useState();
@@ -40,7 +42,6 @@ function CourseDetail() {
       })
       .then((response) => {
         if (response.status === 200) {
-          debugger;
           if (response.data) {
             response.data.modules.sort(function (a, b) {
               return a.moduleOrder - b.moduleOrder;
@@ -137,6 +138,47 @@ function CourseDetail() {
       });
   }
 
+  function postFeedbackModule(stars, message) {
+    let date = formatterDataAtual()
+    api
+    .post(
+      `/course/feedbacks`,
+      {
+        userFk: `${JSON.parse(atob(sessionStorage.getItem("dataUser"))).id}`,
+        moduleFk: moduleId,
+        stars: stars,
+        feedback: message,
+        feedbackDate: date,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
+        },
+      }
+    )
+    .then((response) => {
+      toast.success("Feedback encaminhado com sucesso! Obrigado pela avaliação.")
+    })
+    .catch((error) => {
+      toast.error("Feedback não encaminhado! Tente novamente mais tarde.")
+    });
+  }
+
+  function formatterDataAtual(){
+    let today = new Date();
+    let todayMouth = today.getMonth()
+    let todayDay = today.getDay()
+    
+    if (todayMouth < 10) {
+      todayMouth = `0${today.getMonth()}`;
+    }
+    if (todayDay < 10) {
+      todayDay = `0${today.getDay()}`;
+    }
+    return `${today.getFullYear()}-${todayMouth}-${todayDay}`
+  }
+
   useEffect(() => {
     getCourseDetails();
     getHearts();
@@ -158,7 +200,7 @@ function CourseDetail() {
       setStartTest(`${today.getHours() + "h" + today.getMinutes()}`);
       setDataInicio(
         `${today.getDate() + "-" + todayMouth + "-" + today.getFullYear()} ${
-          today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
+          today.getHours() + ":" + todayMinute + ":" + today.getSeconds()
         }`
       );
     }
@@ -168,9 +210,11 @@ function CourseDetail() {
     setCurrentTab(navigate);
   };
 
-  const handleLessonSelection = (lesson) => {
+  const handleLessonSelection = (lesson, moduleId) => {
     setCurrentLesson(lesson);
     setCurrentContent(lesson.lessonContent);
+
+    setModuleId(moduleId)
   };
 
   const finish = (perc) => {
@@ -212,6 +256,7 @@ function CourseDetail() {
           onResult={resultPercent}
           onDuration={durationTest}
           onStartTest={startTest}
+          onSubmitFeedback={postFeedbackModule}
           goTo={goTo}
         />
       );
@@ -236,7 +281,7 @@ function CourseDetail() {
                     <ModuleList modules={course.modules} onLessonClick={handleLessonSelection} />
                     <div className="course-detail-section">
                         {currentLesson.id &&
-                            <TopBar currentTab={currentTab} changeTab={changeTab}/>
+                            <TopBar goTo={goTo} currentTab={currentTab} t={t}/>
                         }
                         {!currentLesson.id ? 
                             <Cover

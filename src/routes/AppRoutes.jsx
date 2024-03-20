@@ -17,13 +17,12 @@ import Course from '../pages/student/course/Course'
 import NotFound from '../pages/not-found/NotFound'
 import CourseDetail from '../pages/student/course-detail/CourseDetail'
 
-
 function AppRoutes() {
  
     return (
         <>
             <BrowserRouter>  
-                <Routes>
+                <Routes>                    
                     <Route exact path='/'  element={<Institutional/>} />
                     <Route path='*' element={<NotFound/>}/>
                     <Route path='/student' element={<HomeStudent/>} >                        
